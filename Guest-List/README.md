@@ -16,7 +16,7 @@ Creating a List of Names
 
 Hosting the XML Document
 ------------------------
-<p>You will need to make the “list.xml” document publicly available on the Internet so your networked player(s) can freely retrieve the list data. If you don’t have your own servers to host the XML document, you can also use a free Dropbox account: Please see this FAQ to learn more about publicly hosting files with Dropbox.</p>
+<p>You will need to make the “list.xml” document publicly available on the Internet so your networked player(s) can freely retrieve the list data. If you don’t have your own servers to host the XML document, you can also use a free Dropbox account: Please see the following FAQ to learn more about publicly hosting files with Dropbox: http://support.brightsign.biz/entries/21003508-Can-I-use-a-Dropbox-account-with-my-BrightSign</p>
 
 Adding the Data Feed and Plug-In to your Presentation
 ------------------------------------------------------
