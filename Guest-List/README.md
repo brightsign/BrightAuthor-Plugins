@@ -52,7 +52,7 @@ Creating a Live Text State
 <p> </p>
 *Editing the .brs script*
 <ol>
-Open the “list.brs” plug-in file using a text editor program (Notepad, TextMate, etc.).
+<li>Open the “list.brs” plug-in file using a text editor program (Notepad, TextMate, etc.).</li>
 <li>Locate the line that states itemsbyindex[count]=str(count+1)…</li>
 <li>Add the following to the end of the line: “+”, ”+item.jobtitle.GetText()”. The first plus sign will add a comma and space after the last name. The second plus sign will add the “jobtitle” attribute to each list item.</li>
 <li>Remove the following text from the line: “str(count+1)+”. ”+”. Doing this will remove both the number and the period after the number from the beginning of each list item.</li>
