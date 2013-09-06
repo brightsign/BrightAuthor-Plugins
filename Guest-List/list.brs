@@ -25,6 +25,6 @@ Sub list(xmlFileName$ as String, itemsByIndex as object, itemsByTitle as Object,
 
 			endif
 		DeleteFile(xmlfilename$)
-	endif
+	endi
 	
 end Sub
