@@ -1,4 +1,3 @@
-
 Sub list(xmlFileName$ as String, itemsByIndex as object, itemsByTitle as Object, userVariables As Object)
 
 	xml1 = CreateObject("roXMLElement")
