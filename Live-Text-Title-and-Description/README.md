@@ -19,9 +19,9 @@ Adding the Data Feed and Plug-In to your Presentation
 Displaying the Live Text Data in BrightAuthor
 ------------------------------------------------------------
 <p>Now you can create a Live Text state that displays both the item title and item description of the Live Text Data. </p>
-<p><strong>Note<strong>: <em>For a complete description of Live Text states, please see the <a href="http://support.brightsign.biz/entries/314526-brightsign-user-guides-troubleshooting">BrightAuthor User Guide</a>.</em></p>
+<p><strong>Note</strong>: <em>For a complete description of Live Text states, please see the <a href="http://support.brightsign.biz/entries/314526-brightsign-user-guides-troubleshooting">BrightAuthor User Guide</a>.</em></p>
 <ol>
-<li>Click the <strong>interactive</strong> option to the right of the playlist to make the presentation interactive.</ol> 
+<li>Click the <strong>interactive</strong> option to the right of the playlist to make the presentation interactive.</li> 
 <li>Select the <strong>other</strong> tab in the <strong>Media Library</strong> section.</li>
 <li>Drag and drop the <strong>Live Text</strong> icon onto the playlist area.</li>
 <li>Enter a <strong>State name</strong> and specify a <strong>Background Image</strong> for the list text.</li>
