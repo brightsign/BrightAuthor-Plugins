@@ -27,10 +27,7 @@ Displaying the Live Text Data in BrightAuthor
 <li>Enter a <strong>State name</strong> and specify a <strong>Background Image</strong> for the list text.</li>
 <li>Create a text box and set the <strong>Type</strong> to <strong>Live Text Data</strong>, choosing the Data Feed you created in the previous step.</li>
 <li>Select <strong>Item index</strong> and set the field to 1. This text box will display the title of the first item.</li>
-<li>Click <strong>Add Item</strong> and set the <strong>Item index</strong> to 2. The first text box will display the <em>title</em> of the first item, while the second text box will display the <em>description</em> of the first item.</li>
-</ol>
-<p><strong>Note</strong>: <em>For the parser to work correctly, you must use the <strong>Item index</strong>, rather than the <strong>Item title</strong>, to specify what will be displayed.</em></p>
-<ol start="8">
+<li>Click <strong>Add Item</strong> and set the <strong>Item index</strong> to 2. The first text box will display the <em>title</em> of the first item, while the second text box will display the <em>description</em> of the first item. Note that, for the parser to work correctly, you must use the <strong>Item index</strong>, rather than the <strong>Item title</strong>, to specify what will be displayed.</em></li>
 <li>Create as many text boxes as you need. Note that, with this parser, the <strong>Item index</strong> refers to items in multiples of two:</li>
 </ol>
 <ul>
