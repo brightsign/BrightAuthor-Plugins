@@ -16,7 +16,7 @@ Creating a List of Names
 
 Hosting the XML Document
 ------------------------
-<p>You will need to make the “list.xml” document publicly available on the Internet so your networked player(s) can freely retrieve the list data. If you don’t have your own servers to host the XML document, you can also use a free Dropbox account: Please see <a href ="http://support.brightsign.biz/entries/21003508-Can-I-use-a-Dropbox-account-with-my-BrightSign">this FAQ</a> to learn more about publicly hosting files with Dropbox: http://support.brightsign.biz/entries/21003508-Can-I-use-a-Dropbox-account-with-my-BrightSign</p>
+<p>You will need to make the “list.xml” document publicly available on the Internet so your networked player(s) can freely retrieve the list data. If you don’t have your own servers to host the XML document, you can also use a free Dropbox account: Please see <a href ="http://support.brightsign.biz/entries/21003508-Can-I-use-a-Dropbox-account-with-my-BrightSign">this FAQ</a> to learn more about publicly hosting files with Dropbox.
 
 Adding the Data Feed and Plug-In to your Presentation
 ------------------------------------------------------
@@ -33,7 +33,7 @@ Adding the Data Feed and Plug-In to your Presentation
 
 Creating a Live Text State
 --------------------------
-<p>Now you will need to create a Live Text state that displays the dynamic guest list. For a complete description of Live Text states, please see the BrightAuthor User Guide.</p>
+<p>Now you will need to create a Live Text state that displays the dynamic guest list. For a complete description of Live Text states, please see the <a href="http://support.brightsign.biz/entries/314526-brightsign-user-guides-troubleshooting">BrightAuthor User Guide</a>.</p>
 <ol>
 <li>Click the interactive option to the right of the playlist to make the presentation interactive.</li>
 <li>Select the other tab in the Media Library section.</li>
