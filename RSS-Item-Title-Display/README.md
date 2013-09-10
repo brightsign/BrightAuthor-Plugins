@@ -12,6 +12,6 @@ Adding the Data Feed and Plug-In to Your Presentation
 <li>Choose an <strong>Update Interval</strong>. This will determine how often the player will refresh the RSS or Live Text feed.</li>
 <li>Use the Browse button to locate and select the “rsstitle.brs” plug-in script.</li>
 <li>Enter “rsstitle” into the <strong>Parser Function Name</strong> field.</li>
-<li>Click OK.</li>
+<li>Click <strong>OK</strong>.</li>
 
 </ol>
