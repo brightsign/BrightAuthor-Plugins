@@ -16,4 +16,4 @@ Adding the RSS Feed and Plug-In
 </ol>
 
 <p>Now you can create a Live Text state that displays RSS items by index. Under <strong>Type</strong>, choose Live Text Data and select the feed you just added. Then specify the Item index as desired.</p>
-<strong>Note<strong>:<em>When using this parser on a Data Feed, you cannot display items from that feed using the Item title.</em>
+<strong>Note</strong>:<em>When using this parser on a Data Feed, you cannot display items from that feed using the Item title.</em>
