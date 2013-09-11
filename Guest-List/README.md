@@ -22,28 +22,28 @@ Adding the Data Feed and Plug-In to your Presentation
 ------------------------------------------------------
 <p>Next, you will need to add the plug-in script to the presentation and specify how often the player will contact the server to update the content of the list.</p>
 <ol>
-<li>In BrightAuthor, navigate to the File > Presentation properties window. Select the Data Feeds tab and click the Add Data Feed button.</li>
-<li>Enter a Feed name for the Data Feed (e.g. “Guest List”).</li>
-<li>Enter the URL of your hosted XML document in the Feed Specification field.</li>
-<li>Choose an Update Interval. This will determine how often the player will refresh the guest list using the hosted XML document.</li>
-<li>Use the Browse button to locate and select the “list.brs” plug-in script.</li>
-<li>Enter “list” into the Parser Function Name field.</li>
-<li>Click OK.</li>
+<li>In BrightAuthor, navigate to the <strong>File > Presentation properties</strong> window. Select the <strong>Data Feeds</strong> tab and click the <strong>Add Data Feed</strong> button.</li>
+<li>Enter a <strong>Feed name</strong> for the Data Feed (e.g. “Guest List”).</li>
+<li>Enter the URL of your hosted XML document in the <strong>Feed Specification</strong> field.</li>
+<li>Choose an <strong>Update Interval</strong>. This will determine how often the player will refresh the guest list using the hosted XML document.</li>
+<li>Use the <strong>Browse</strong> button to locate and select the “list.brs” plug-in script.</li>
+<li>Enter “list” into the <strong>Parser Function Name</strong> field.</li>
+<li>Click <strong>OK</strong>.</li>
 </ol>
 
 Creating a Live Text State
 --------------------------
 <p>Now you will need to create a Live Text state that displays the dynamic guest list. For a complete description of Live Text states, please see the <a href="http://support.brightsign.biz/entries/314526-brightsign-user-guides-troubleshooting">BrightAuthor User Guide</a>.</p>
 <ol>
-<li>Click the interactive option to the right of the playlist to make the presentation interactive.</li>
-<li>Select the other tab in the Media Library section.</li>
-<li>Drag and drop the Live Text icon onto the playlist area.</li>
-<li>Enter a State name and specify a Background Image for the list text.</li>
-<li>Create a text box and set the Type to Live Text Data, choosing the “Guest List” Data Feed you added to the presentation in the previous step.</li>
-<li>Select Item index and set the field to 1. This sets the text box to display the first name in the XML document you created.</li>
+<li>Click the <strong>interactive</strong> option to the right of the playlist to make the presentation interactive.</li>
+<li>Select the <strong>other</strong> tab in the <strong>Media Library</strong> section.</li>
+<li>Drag and drop the <strong>Live Text</strong> icon onto the playlist area.</li>
+<li>Enter a <strong>State name</strong> and specify a <strong>Background Image</strong> for the list text.</li>
+<li>Create a text box and set the <strong>Type</strong> to <strong>Live Text Data</strong>, choosing the “Guest List” Data Feed you added to the presentation in the previous step.</li>
+<li>Select <strong>Item index</strong> and set the field to 1. This sets the text box to display the first name in the XML document you created.</li>
 <li>Fit the text box to the first list area in the image.</li>
-<li>Click Add Item to create a new text item and repeat Steps 5-7. Do this for every name in your list. Note that the Item index number will increase by one for each new text item you create.</li>
-<li>Click OK once you are finished adding list names. Expand and publish the presentation as desired.</li>
+<li>Click <strong>Add Item</strong> to create a new text item and repeat <strong>Steps 5-7</strong>. Do this for every name in your list. Note that the <strong>Item index</strong> number will increase by one for each new text item you create.</li>
+<li>Click <strong>OK</strong> once you are finished adding list names. Expand and publish the presentation as desired.</li>
 </ol>
 
 (Optional) Customizing the Data Feed Parser
