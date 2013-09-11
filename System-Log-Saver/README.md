@@ -7,13 +7,13 @@ Adding the Parser
 ------------------------
 <p>You will need to add the plug-in script to your presentation as a Data Feed parser.</p>
 <ol>
-<li>Navigate to File > Presentation properties.</li> 
-<li>Select the Data Feeds tab and click the Add Data Feed button.</li>
-<li>Enter a Feed name for the Data Feed.</li>
-<li>Enter the following URL in the Feed Specification field: file:///autoplugins.brs</li>
-Note: Since we’re only interested in adding a plug-in script to the presentation, having a working Data Feed is not necessary. Therefore, the goal here is simply to have URL that will always be valid, rather than having an actual Data <li>Feed to use or display in the presentation.</li>
-<li>Choose an Update Interval. This will determine how often the system log file will be saved to the local storage.</li>
-<li>Use the Browse button to locate and select the plug-in script.</li>
-<li>Enter “klog” in the Parser Function Name field.</li>
-<li>Click OK.</li>
+<li>Navigate to <strong>File > Presentation properties</strong>.</li> 
+<li>Select the <strong>Data Feeds</strong> tab and click the <strong>Add Data Feed</strong> button.</li>
+<li>Enter a <strong>Feed name<strong> for the Data Feed.</li>
+<li>Enter the following URL in the <strong>Feed Specification</strong> field: file:///autoplugins.brs</li>
+<strong>Note</strong>: <em>Since we’re only interested in adding a plug-in script to the presentation, having a working Data Feed is not necessary. Therefore, the goal here is simply to have URL that will always be valid, rather than having an actual Data Feed to use or display in the presentation.</em>
+<li>Choose an <strong>Update Interval</strong>. This will determine how often the system log file will be saved to the local storage.</li>
+<li>Use the <strong>Browse</strong> button to locate and select the plug-in script.</li>
+<li>Enter “klog” in the <strong>Parser Function Name</strong> field.</li>
+<li>Click <strong>OK</strong>.</li>
 </ol>
