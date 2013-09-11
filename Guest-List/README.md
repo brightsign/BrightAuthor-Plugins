@@ -8,11 +8,13 @@ Creating a List of Names
 <p>Before publishing the presentation, you will need to create a list of names as an XML document titled “list.xml”. If you are unfamiliar with creating XML documents, you can use the “list.xml” file attached with these instructions as a template:</p>
 <ol>
 <li>Open the “list.xml” file using a text editor program (Notepad, TextMate, etc.).</li>
-<li>Enter a <code> <firstname> </code> and <lastname> for each name between the <customer> and </customer> tags. Note that you can only place one set of <firstname> and <lastname> tags between a single set of <customer> tags. Also note that the order of names in the XML list is the same order in which names will appear in the presentation.</li>
+<li>Enter a <firstname> and <lastname> for each name between the <customer> and </customer> tags. Note that you can only place one set of <firstname> and <lastname> tags between a single set of <customer> tags. Also note that the order of names in the XML list is the same order in which names will appear in the presentation.</li>
 <li>If you need to add fewer than ten names to the list, remove the additional <customer> </customer> entries and change the <list total=”10”> number on the second line to the number of <customer> entries in your list.</li>
 <li>If you need to add more than ten names to the list, copy and paste existing four-line <customer> </customer> entries to the document. Make sure extra entries are posted before the </list> tag at the end of the document and are not posted between other <customer> </customer> tags. Then, change the <list total=”10”> number on the second line to the number of <customer> tags in your list.</li>
 <li>Save the “list.xml” document.</li>
 </ol>
+
+'<firstname>'
 
 Hosting the XML Document
 ------------------------
