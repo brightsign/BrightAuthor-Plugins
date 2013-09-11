@@ -15,7 +15,7 @@ Creating the RSS or Live Text Feed
 <li>Click the <strong>Save</strong> button once you are finished.</li>
 </ol>
 ###RSS Feed
-<p>You will need to create a “zip.xml” document and make it publicly available on the Internet so your networked players can freely retrieve the variable data. If you don’t have your own servers to host the XML document, you can also use a free Dropbox account: Please see  <a href="http://support.brightsign.biz/entries/21003508-Can-I-use-a-Dropbox-account-with-my-BrightSign">this FAQ<a> to learn more about publicly hosting files with Dropbox. </p>
+<p>You will need to create a “zip.xml” document and make it publicly available on the Internet so your networked players can freely retrieve the variable data. If you don’t have your own servers to host the XML document, you can also use a free Dropbox account: Please see  <a href="http://support.brightsign.biz/entries/21003508-Can-I-use-a-Dropbox-account-with-my-BrightSign">this FAQ</a> to learn more about publicly hosting files with Dropbox. </p>
 <ol>
 <li>Open the example “zip.xml” file using a text editor program (Notepad, TextMate, etc.).</li>
 <li>Add new <item> </item> tags for each of your players. </li>
@@ -46,7 +46,7 @@ Configuring the Presentation
 <li>Use the <strong>Add Variable</strong> button to add two variables.</li>
 <li>Specify the <strong>Name</strong> of the first variable as “zipcode”. Set the <strong>Default value</strong> to a value you wish the presentation to use if it cannot connect to the RSS or Live Text feed.</li>
 <li>Specify the <strong>Name</strong> of the second variable as “ziplistlocation”. Set the <strong>Default value</strong> to the URL of the RSS or Live Text feed you created in the previous section.</li>
-Note: If you created the feed using the BrightSign Network, you can retrieve the URL by signing into the WebUI and navigating to <strong>Create > Live Text Feeds</strong>. Click <strong>Properties</strong> beneath the feed you created and copy/paste the displayed URL.
+<strong>Note</strong>: <em>If you created the feed using the BrightSign Network, you can retrieve the URL by signing into the WebUI and navigating to <strong>Create > Live Text Feeds</strong>. Click <strong>Properties</strong> beneath the feed you created and copy/paste the displayed URL.</em>
 </ol>
 (optional) Customizing the plug-in
 ----------------------------------
