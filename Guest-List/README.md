@@ -1,5 +1,3 @@
-'<firstname>'
-
 Overview
 --------
 <p>This plug-in allows you to display a dynamic, numbered list of first and last names. This list can be remotely updated by editing a publicly accessible XML file. </p>
@@ -10,9 +8,9 @@ Creating a List of Names
 <p>Before publishing the presentation, you will need to create a list of names as an XML document titled “list.xml”. If you are unfamiliar with creating XML documents, you can use the “list.xml” file attached with these instructions as a template:</p>
 <ol>
 <li>Open the “list.xml” file using a text editor program (Notepad, TextMate, etc.).</li>
-<li>Enter a <firstname> and <lastname> for each name between the <customer> and </customer> tags. Note that you can only place one set of <firstname> and <lastname> tags between a single set of <customer> tags. Also note that the order of names in the XML list is the same order in which names will appear in the presentation.</li>
-<li>If you need to add fewer than ten names to the list, remove the additional <customer> </customer> entries and change the <list total=”10”> number on the second line to the number of <customer> entries in your list.</li>
-<li>If you need to add more than ten names to the list, copy and paste existing four-line <customer> </customer> entries to the document. Make sure extra entries are posted before the </list> tag at the end of the document and are not posted between other <customer> </customer> tags. Then, change the <list total=”10”> number on the second line to the number of <customer> tags in your list.</li>
+<li>Enter a <code>&lt;firstname&gt;</code> and <code>&lt;lastname&gt;</code> for each name between the <code>&lt;customer&gt;</code> and <code>&lt;/customer&gt;</code> tags. Note that you can only place one set of <code>&lt;firstname&gt;</code> and <code>&lt;lastname&gt;</code> tags between a single set of <code>&lt;customer&gt;</code> tags. Also note that the order of names in the XML list is the same order in which names will appear in the presentation.</li>
+<li>If you need to add fewer than ten names to the list, remove the additional <code>&lt;customer&gt;</code> <code>&lt;/customer&gt;</code> entries and change the <code>&lt;list total=”10”&gt;</code> number on the second line to the number of <code>&lt;customer&gt;</code> entries in your list.</li>
+<li>If you need to add more than ten names to the list, copy and paste existing four-line <code>&lt;customer&gt;</code> <code>&lt;/customer&gt;</code> entries to the document. Make sure extra entries are posted before the <code>&lt;/list&gt;</code> tag at the end of the document and are not posted between other <code>&lt;customer&gt;</code> <code>&lt;/customer&gt;</code> tags. Then, change the <code>&lt;list total=”10”&gt;</code> number on the second line to the number of <code>&lt;customer&gt;</code> tags in your list.</li>
 <li>Save the “list.xml” document.</li>
 </ol>
 
@@ -56,16 +54,16 @@ Creating a Live Text State
 *Editing the .brs script*
 <ol>
 <li>Open the “list.brs” plug-in file using a text editor program (Notepad, TextMate, etc.).</li>
-<li>Locate the line that states itemsbyindex[count]=str(count+1)…</li>
-<li>Add the following to the end of the line: “+”, ”+item.jobtitle.GetText()”. The first plus sign will add a comma and space after the last name. The second plus sign will add the “jobtitle” attribute to each list item.</li>
-<li>Remove the following text from the line: “str(count+1)+”. ”+”. Doing this will remove both the number and the period after the number from the beginning of each list item.</li>
+<li>Locate the line that states <code>itemsbyindex[count]=str(count+1)…</code></li>
+<li>Add the following to the end of the line: <code>“+”, ”+item.jobtitle.GetText()”</code>. The first plus sign will add a comma and space after the last name. The second plus sign will add the “jobtitle” attribute to each list item.</li>
+<li>Remove the following text from the line: <code>“str(count+1)+”. ”+”</code>. Doing this will remove both the number and the period after the number from the beginning of each list item.</li>
 <li>Save and close the “list.brs” file when you are finished.</li>
 </ol>
 <p> </p>
 *Editing the XML document*
 <ol>
 <li>Open the “list.xml” file using a text editor program (Notepad, TextMate, etc.).</li>
-<li>Insert a new set of <jobtitle> </jobtitle> tags between each <customer> </customer> tag. The <jobtitle> tags should be the exact same format as the <firstname> </firstname> and <lastname> </lastname> tags.</li>
+<li>Insert a new set of <code>&lt;jobtitle&gt;</code>  <code>&lt;/jobtitle&gt;</code>  tags between each <code>&lt;customer&gt;</code>  <code>&lt;/customer&gt;</code>  tag. The <code>&lt;jobtitle&gt;</code>  tags should be the exact same format as the <code>&lt;firstname&gt;</code> <code>&lt;/firstname&gt;</code>  and <code>&lt;lastname&gt;</code> <code>&lt;/lastname&gt;</code> tags.</li>
 <li>Save and close the “list.xml” file when you are finished.</li>
 </ol>
 
