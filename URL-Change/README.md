@@ -5,7 +5,7 @@ Overview
 Creating the RSS or Live Text Feed
 ----------------------------------
 <p>Before configuring the presentation, you will need to create the RSS or Live Text feed that assigns User Variable values according to each serial number. If you do not have a BrightSign Network account, you will need to create an RSS feed.</p>
-###Live Text Feed (BSN)
+####Live Text Feed (BSN)
 <ol>
 <li>Log in to your BrightSign Network account.</li>
 <li>Go to <strong>Create > Live Text Feeds</strong>.</li>
@@ -14,22 +14,22 @@ Creating the RSS or Live Text Feed
 <li>Insert the desired User Variable value for each player in the corresponding <strong>Value fields.</li>
 <li>Click the <strong>Save</strong> button once you are finished.</li>
 </ol>
-###RSS Feed
+####RSS Feed
 <p>You will need to create a “zip.xml” document and make it publicly available on the Internet so your networked players can freely retrieve the variable data. If you don’t have your own servers to host the XML document, you can also use a free Dropbox account: Please see  <a href="http://support.brightsign.biz/entries/21003508-Can-I-use-a-Dropbox-account-with-my-BrightSign">this FAQ</a> to learn more about publicly hosting files with Dropbox. </p>
 <ol>
 <li>Open the example “zip.xml” file using a text editor program (Notepad, TextMate, etc.).</li>
-<li>Add new <item> </item> tags for each of your players. </li>
-<li>Add <title> and <description> tags between each set of <item> tags (as shown in the example entry). </li>
-<li>Specify a player serial number within each set of <title> tags. You can find serial numbers listed on the bottom of each player.</li>
-<li>Specify a zip code (or other local variable value) within each corresponding set of <description> tags.</li>
+<li>Add new <code>&lt;item&gt;</code> <code>&lt;/item&gt;</code> tags for each of your players. </li>
+<li>Add <code>&lt;title&gt;</code> and <code>&lt;description&gt;</code> tags between each set of <code>&lt;item&gt;</code> tags (as shown in the example entry). </li>
+<li>Specify a player serial number within each set of <code>&lt;title&gt;</code> tags. You can find serial numbers listed on the bottom of each player.</li>
+<li>Specify a zip code (or other local variable value) within each corresponding set of <code>&lt;description&gt;</code> tags.</li>
 <li>Save and close the “zip.xml” file when you are finished.</li>
-<strong>Note</strong>: <em>The channel <title> and <description> tags are named “zip” by default. You can change these if desired. However, if you’d like to change the “zip.xml” file name, you will need to edit the plug-in script (see below).</em>
+<strong>Note</strong>: <em>The channel <code>&lt;title&gt;</code> and <code>&lt;description&gt;</code> tags are named “zip” by default. You can change these if desired. However, if you’d like to change the “zip.xml” file name, you will need to edit the plug-in script (see below).</em>
 </ol>
 
 Configuring the Presentation
 ----------------------------
 <p>You will need to add the plug-in to the presentation and create two User Variables: “zipcode” and “ziplistlocation”.</p>
-###Adding the Plugin
+####Adding the Plugin
 <ol>
 <li>Go to <strong>File > Presentation Properties > Data Feeds</strong>. Click <strong>Add Data Feed</strong>.</li>
 <li>Enter a <strong>Feed name</strong> for the Data Feed.</li>
@@ -40,7 +40,7 @@ Configuring the Presentation
 <li>Enter “urlchange” in the <strong>Parser Function Name</strong> field.</li>
 <li>Click <strong>OK</strong>.</li>
 </ol>
-###Adding the User Variables
+####Adding the User Variables
 <ol>
 <li>While in the <strong>Presentation properties</strong> window, navigate to the <strong>Variables</strong> tab.</li>
 <li>Use the <strong>Add Variable</strong> button to add two variables.</li>
@@ -51,9 +51,9 @@ Configuring the Presentation
 (optional) Customizing the plug-in
 ----------------------------------
 <p>To edit the “urlchange.bpf” plug-in, open it with a text editor program (Notepad, TextMate, etc.).</p>
-###Changing the name of “zip” RSS feed or Data Feed
-<p>Locate the line that states the following: ziplist$="zip.xml". Change the name of the “zip.xml” file (while leaving the quotes intact) to match the desired name of the RSS .xml file or the BSN Live Text feed name.</p>
-###Changing the name of the “zipcode” User Variable
-<p>Locate the line that states the following: if userVariables.DoesExist(“zipcode”) then. Change “zipcode” on this line and the following line to the desired value. Make sure it matches the name of the User Variable in the presentation.</p>
-###Changing the name of the “ziplistlocation” User Variable
-<p>Locate the line that states the following: if userVariables.DoesExist(“ziplistlocation”) then. Change “ziplistlocation” on this line and the following line to the desired value. Make sure it matches the name of the User Variable in the presentation.</p>
+####Changing the name of “zip” RSS feed or Data Feed
+<p>Locate the line that states the following: <code>&lt;ziplist$="zip.xml"&gt;</code>. Change the name of the “zip.xml” file (while leaving the quotes intact) to match the desired name of the RSS .xml file or the BSN Live Text feed name.</p>
+####Changing the name of the “zipcode” User Variable
+<p>Locate the line that states the following: <code>&lt;if userVariables.DoesExist(“zipcode”) then&gt;</code>. Change “zipcode” on this line and the following line to the desired value. Make sure it matches the name of the User Variable in the presentation.</p>
+####Changing the name of the “ziplistlocation” User Variable
+<p>Locate the line that states the following: <code>&lt;if userVariables.DoesExist(“ziplistlocation”) then&gt;</code>. Change “ziplistlocation” on this line and the following line to the desired value. Make sure it matches the name of the User Variable in the presentation.</p>
