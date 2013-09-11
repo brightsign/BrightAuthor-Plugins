@@ -1,3 +1,5 @@
+'<firstname>'
+
 Overview
 --------
 <p>This plug-in allows you to display a dynamic, numbered list of first and last names. This list can be remotely updated by editing a publicly accessible XML file. </p>
@@ -14,7 +16,6 @@ Creating a List of Names
 <li>Save the “list.xml” document.</li>
 </ol>
 
-'<firstname>'
 
 Hosting the XML Document
 ------------------------
