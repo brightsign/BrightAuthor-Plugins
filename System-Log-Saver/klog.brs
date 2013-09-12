@@ -11,8 +11,10 @@ Sub klog(xmlFileName$ as String, itemsByIndex as object, itemsByTitle as Object,
 	date = month+day+year
 
 	klogname = date+"kernel_log.txt"
-	if debug print klogname	
-	f = CreateObject("roCreateFile", klogname)
+	if debug print klogname
+	
+	f = CreateObject("roAppendFile", klogname)
+	if type(f) <> "roAppendFile" then f = CreateObject("roCreateFile", klogname)
 	print #f, log
 	f = invalid
 	if debug print "finished"
