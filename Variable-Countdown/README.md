@@ -29,3 +29,35 @@ Adding the Parser
 </ol>
 <p>You’ve now created a User Variable that starts with a specified value, and then counts down from that value at a specified interval (every 30 seconds, every minute, every 5 minutes, etc.). </p>
 
+Creating a Live Text State
+----------------------------
+<p>Now you can create a presentation that displays the countdown User Variable. You can display User Variables as text on screen using the Live Text state, which is available in Images zones and Video or Images zones.</p>
+<ol>
+<li>Click the <strong>interactive</strong> option to the right of the playlist to make the presentation interactive.</li>
+<li>Select the <strong>other</strong> tab in the <strong>Media Library</strong> section.</li>
+<li>Drag and drop the <strong>Live Text</strong> icon onto the playlist area.</li>
+<li>Enter a <strong>State name</strong> and specify a <strong>Background Image</strong> (if desired).</li>
+<li>Change the type of the text box to <strong>User Variable</strong> and select “countdown”.</li>
+<li>(Optional) Use the <strong>Add Item</strong> button to create additional text boxes for fixed text, user variables, data feeds, etc.</li>
+</ol>
+
+Customizing the Plug-In
+-------------------------------
+<p>By default, the parser counts down 1 for every interval, but you can customize this too by editing the parser file.</p>
+<ol>
+<li>Open the “var_countdown.brs” file using a text editor program (Notepad, TextMate, etc.).</li>
+<li>Locate the line that states <code>if currentvalue > 0 then currentvalue = currentvalue-1</code>. This is the argument that determines what happens each time the update interval occurs for the parser script.</li>
+<li>Modify the equation after <code>currentvalue =</code> to create the desired behavior. For example, you can have the User Variable count down by five at each interval (<code>currentvalue = currentvalue-5</code>), or you can make the User Variable count up instead of down: (<code>current value = currentvalue+1</code>).</li>
+<li>Save the modified “var_countdown.brs” when you are finished making edits.</li>
+</ol>
+ Setting the Timer Value
+-----------------------------------
+<p>If you want to dynamically set the beginning value of the countdown timer, attach a Set Variable command to your desired input event (UDP, keyboard, GPIO, etc.):</p> 
+<ol>
+<li>Navigate to the <strong>Advanced</strong> tab in the event.</li>
+<li>Click the <strong>Add Command</strong> button.</li>
+<li>Under <strong>Commands,</strong>, choose <strong>Other</strong>.</li>
+<li>Under <strong>Command Parameters</strong>, choose <strong>Set Variable</strong>.</li>
+<li>Enter the name of the countdown User Variable in the <strong>Variable</strong> field. Enter the beginning value of the countdown User Variable in the <strong>Value</strong> field.</li>
+<li>Click <strong>OK</strong> when finished.</li>
+</ol>
