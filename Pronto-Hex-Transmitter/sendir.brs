@@ -83,7 +83,7 @@ Function ParseSendIRPluginMsg(origMsg as string, s as object) as boolean
 	retval  = false
 	command = ""
 		
-	' convert the message to all lower case for easier string matching later
+	' convert message to all lower case for easier string matching later
 	msg = lcase(origMsg)
 	print "Received Plugin message: "+msg
 	r = CreateObject("roRegex", "^sendir", "i")
