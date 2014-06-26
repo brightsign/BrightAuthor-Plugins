@@ -10,10 +10,12 @@ Details
 
 Server Options
 ------------------
-<p><strong>Maxbitrate</strong> - sets the maximum instantaneous bitrate of the RTP transfer initiated by RTSP. This has no effect for HTTP. The units are in Kbps; the parameter value 80000 (meaning 80Mbps) has been found to work well for streaming to XD players. The default behaviour (achieved by passing the value zero) is to not limit the bitrate at all.</p>
+<p><strong>Maxbitrate</strong></p>
+<p>sets the maximum instantaneous bitrate of the RTP transfer initiated by RTSP. This has no effect for HTTP. The units are in Kbps; the parameter value 80000 (meaning 80Mbps) has been found to work well for streaming to XD players. The default behaviour (achieved by passing the value zero) is to not limit the bitrate at all.</p>
 
 <p>Example: "rtsp:port=554&trace&maxbitrate=80000"</p>
 
-<p><strong>Threads</strong> - Each thread handles one client; the default value is "5".</p>
+<p><strong>Threads</strong></p>
+<p>- Each thread handles one client; the default value is "5".</p>
 
 <p>Example: "http:port=8080&threads=10"</p>
