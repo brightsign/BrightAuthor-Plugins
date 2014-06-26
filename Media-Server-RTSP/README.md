@@ -16,6 +16,6 @@ Server Options
 <p>Example: "rtsp:port=554&trace&maxbitrate=80000"</p>
 
 <p><strong>Threads</strong></p>
-<p>- Each thread handles one client; the default value is "5".</p>
+<p>Each thread handles one client; the default value is "5".</p>
 
 <p>Example: "http:port=8080&threads=10"</p>
