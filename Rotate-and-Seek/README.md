@@ -18,3 +18,4 @@ Rotate
 <li>mirror_rot180: Mirrored 180 degree clockwise rotation</li>
 <li>mirror_rot270: Mirrored 270 degree clockwise rotation</li>
 </li>
+</p>
