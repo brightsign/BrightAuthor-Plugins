@@ -1,5 +1,4 @@
-README
----------
+<h3>Overview</h3>
 
 <p>This plugin plays an audio file over HDMI whenever a touch event is triggered in the presentation.</p>
 
