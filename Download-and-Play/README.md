@@ -1,4 +1,4 @@
-Overview
+ReadMe
 --------
 <p>This plugin allows you to download an image from a URL and display it using a Plugin Message command or UDP command. The command message must be formatted as follows:</p>
 <code>downplay![image_URL]</code>
