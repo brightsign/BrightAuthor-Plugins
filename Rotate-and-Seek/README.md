@@ -17,7 +17,7 @@ Rotate
 <li>m90: Mirrored 90 degree clockwise rotation</li>
 <li>m180: Mirrored 180 degree clockwise rotation</li>
 <li>m270: Mirrored 270 degree clockwise rotation</li>
-</li>
+</ul>
 <p><strong>Example:</strong>: The following command rotates a zone named "main" by ninety degrees.</p>
 <code>rotate!main!r90</code>
 
@@ -30,5 +30,5 @@ Seek
 <p><strong>zone_name</strong>: The name of the video zone containing the video you wish to perform seek on.</p>
 <p><strong>video_position</strong>: The position (in milliseconds) to seek to in the current video. The seek will not occur if the position is past the end of the video file.</p>
 
-<P><strong>Example</strong>: The following command seeks to 5000 milliseconds in the current video file in the "main" zone:</p>
+<P><strong>Example</strong>: The following command seeks to 2500 milliseconds in the current video file in the "main" zone:</p>
 <code>seek!main!2500</code>
