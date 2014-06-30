@@ -8,14 +8,27 @@ Rotate
 <code>rotate![zone_name]![rotate_type]</code>
 
 <p><strong>zone_name</strong>: The name of the video zone you wish to rotate.</p>
-<p><strong>rotate_type</strong>: The type of video rotation to be performed. The following parameters can be used:
+<p><strong>rotate_type</strong>: The type of video rotation to be performed. The following parameters can be used:</p>
 <ul>
-<li>rot90: 90 degree clockwise rotation</li>
-<li>rot180: 180 degree rotation</li>
-<li>rot270: 270 degree clockwise rotation</li>
+<li>r90: 90 degree clockwise rotation</li>
+<li>r180: 180 degree rotation</li>
+<li>r270: 270 degree clockwise rotation</li>
 <li>mirror: Horizontal mirror transformation</li>
-<li>mirror_rot90: Mirrored 90 degree clockwise rotation</li>
-<li>mirror_rot180: Mirrored 180 degree clockwise rotation</li>
-<li>mirror_rot270: Mirrored 270 degree clockwise rotation</li>
+<li>m90: Mirrored 90 degree clockwise rotation</li>
+<li>m180: Mirrored 180 degree clockwise rotation</li>
+<li>m270: Mirrored 270 degree clockwise rotation</li>
 </li>
-</p>
+<p><strong>Example:</strong>: The following command rotates a zone named "main" by ninety degrees.
+<code>rotate!main!r90</code>
+
+
+Seek
+------
+<p>To trigger a seek, the Plugin Message or UDP command must be formatted as follows:</p>
+<code>seek![zone_name]![video_position]</code>
+
+<p><strong>zone_name</strong>: The name of the video zone containing the video you wish to perform seek on.</p>
+<p><strong>video_position</strong>: The position (in milliseconds) to seek to in the current video. The seek will not occur if the position is past the end of the video file.</p>
+
+<P><strong>Example</strong>: The following command seeks to 5000 milliseconds in the current video file in the "main" zone:</p>
+<code>seek!main!2500</code>
