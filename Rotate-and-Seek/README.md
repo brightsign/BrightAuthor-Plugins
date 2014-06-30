@@ -18,7 +18,7 @@ Rotate
 <li>m180: Mirrored 180 degree clockwise rotation</li>
 <li>m270: Mirrored 270 degree clockwise rotation</li>
 </li>
-<p><strong>Example:</strong>: The following command rotates a zone named "main" by ninety degrees.
+<p><strong>Example:</strong>: The following command rotates a zone named "main" by ninety degrees.</p>
 <code>rotate!main!r90</code>
 
 
