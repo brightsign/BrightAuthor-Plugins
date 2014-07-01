@@ -11,6 +11,16 @@ Specifying an Audio File
 Changing the Audio Output
 -------------------------
 <p>By default, the audio file is only output over HDMI, but the output configuration can be customized in the plugin</p>
+<p>To add additional audio outputs, add one or more of the following entries after line 111:</p>
 <ul>
-<li>To add additional audio outputs, add one or more of the following entries after line 111: <code>CreateObject("roAudioOutput", [output])</code>, where <code>[output]</code> is one of the following: "Analog", "SPDIF", or "USB".
-<li>To remove HDMI audio output, change the text of line 111 from <code>CreateObject("roAudioOutput","HDMI")</code> to <code>CreateObject("roAudioOutput","NONE")</code>.</li>
+<li><code>AnalogAudioOutput = CreateObject("roAudioOutput", "Analog")</code>
+<li><code>SPDIFAudioOutput = CreateObject("roAudioOutput", "SPDIF")</code>
+<li><code>USBAudioOutput = CreateObject("roAudioOutput", "USB")</code>
+</ul>
+<p>For each of the added outputs, you will also need to add the following after line 112:</p>
+<ul>
+<li><code>compressed.push(AnalogAudioOutput)</code></li>
+<li><code>compressed.push(SPDIFAudioOutput)</code></li>
+<li><code>compressed.push(USBAudioOutput)</code></li>
+
+<p>To remove HDMI audio output, change the text of line 111 from <code>CreateObject("roAudioOutput","HDMI")</code> to <code>CreateObject("roAudioOutput","NONE")</code>.</p>
