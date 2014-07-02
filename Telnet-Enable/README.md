@@ -1,7 +1,7 @@
 README
 -------
 
-<p>This plugin allows you to enable or disable Telnet on a BrightSign player. You can use Telnet to observe player logging over the local network. Normally, this can only be captured via the serial log.</p> 
+<p>This plugin allows you to enable or disable Telnet on a BrightSign player. You can use Telnet to observe logging information over the local network that you could normally only capture via the serial log.</p> 
 
 <p>The plugin is triggered using a Plugin Message command or UDP command directed at port 555. The plugin accepts the following messages:</p>
 <ul>
