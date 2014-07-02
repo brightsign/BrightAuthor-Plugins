@@ -7,6 +7,6 @@ README
 <ul>
 <li><code>telnet!on</code></li>
 <li><code>telnet!off</code><li>
-<li><code<telnet!reboot</code></li>
+<li><code>telnet!reboot</code></li>
 </ul>
 <p>The player must be rebooted before the changes to Telnet settings go into effect.</p>
