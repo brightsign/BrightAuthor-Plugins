@@ -1,0 +1,167 @@
+Function lfnrename_Initialize(msgPort As Object, userVariables As Object, bsp as Object)
+
+    print "lfnrename_Initialize - entry"
+
+    lfnrename = newlfnrename(msgPort, userVariables, bsp)
+	changename(uservariables)
+	
+    return lfnrename
+
+End Function
+
+
+Function newlfnrename(msgPort As Object, userVariables As Object, bsp as Object)
+	print "newlfnrename"
+
+	s = {}
+	s.version = 0.26
+	s.msgPort = msgPort
+	s.userVariables = userVariables
+	s.bsp = bsp
+	s.ProcessEvent = lfnrename_ProcessEvent
+	s.objectName = "lfnrename_object"
+	s.debug  = true
+	
+	s.udpReceiverPort = 555
+	s.udpReceiver = CreateObject("roDatagramReceiver", s.udpReceiverPort)
+	s.udpReceiver.SetPort(msgPort)
+	return s
+End Function
+
+Function lfnrename_ProcessEvent(event As Object) as boolean
+	print "lfnrename_processevent"
+	
+	retval = false
+
+	if type(event) = "roAssociativeArray" then
+        if type(event["EventType"]) = "roString" then
+             if (event["EventType"] = "SEND_PLUGIN_MESSAGE") then
+                if event["PluginName"] = "lfnrename" then
+                    pluginMessage$ = event["PluginMessage"]
+					print "SEND_PLUGIN/EVENT_MESSAGE:";pluginMessage$
+                    retval = ParselfnrenamePluginMsg(pluginMessage$, m)
+                endif
+            endif
+        endif
+	else if type(event) = "roDatagramEvent" then
+		msg$ = event
+		if (left(msg$,9) = "lfnrename") then
+		    retval = ParselfnrenamePluginMsg(msg$, m)
+		end if
+
+	else if (type(event) = "roUrlEvent") then
+
+	else if type(event) = "roHttpEvent" then
+
+	else if type(event) = "roTimerEvent" then
+
+	end if
+
+	return retval
+
+End Function
+
+
+Sub changename(uservariables as Object)
+
+	newname$ ="notset"
+	oldname$=" "
+
+	if userVariables.DoesExist("lname") then
+			myvariable = userVariables.Lookup("lname")
+			if myvariable <> invalid then 
+				newname$ = myvariable.GetCurrentValue()
+				
+				registrySection = CreateObject("roRegistrySection", "networking")
+				if type(registrySection)<>"roRegistrySection" then 
+					print "Error: Unable to create roRegistrySection"
+					
+				else
+					
+					oldname$ = registrysection.read("un")
+					if ucase(newname$) <> ucase(oldname$) then 
+						if newname$ <> "notset" then 
+							registrySection.Write("un", newname$)
+							registrySEction.flush()
+							registrySection=invalid
+							rebootsystem()
+						endif
+					else
+						print "Local Name already in use"; oldname$
+					endif
+				endif
+				
+			else
+				print "no lname variable found"
+			endif		
+					
+	else
+		print "no lname variable found"
+	endif
+
+End Sub
+
+Sub changenow(newname$ as string)
+	registrySection = CreateObject("roRegistrySection", "networking")
+	if type(registrySection)<>"roRegistrySection" then 
+		print "Error: Unable to create roRegistrySection"
+		
+	else
+		
+		oldname$ = registrysection.read("un")
+		if ucase(newname$) <> ucase(oldname$) then 
+				registrySection.Write("un", newname$)
+				registrySEction.flush()
+				registrySection=invalid
+				rebootsystem()	'might want to reboot manually
+		else
+			print "Local Name already in use"; oldname$
+			
+		endif
+	endif
+End Sub
+
+Function ParselfnrenamePluginMsg(origMsg as string, s as object) as boolean
+	retval  = false
+	command = ""
+		
+	' convert the message to all lower case for easier string matching later
+	msg = lcase(origMsg)
+	print "Received Plugin message: "+msg
+	r = CreateObject("roRegex", "^lfnrename", "i")
+	match=r.IsMatch(msg)
+
+	if match then
+		retval = true
+
+		' split the string
+		r2 = CreateObject("roRegex", "!", "i")
+		fields=r2.split(msg)
+		numFields = fields.count()
+		if (numFields < 2) or (numFields > 2) then
+			s.bsp.diagnostics.printdebug("Incorrect number of fields for lfnrename command:"+msg)
+			return retval
+		else if (numFields = 2) then
+			command=fields[1]
+		end if
+	end if
+
+	s.bsp.diagnostics.printdebug("command found: " +command)
+
+	if command = "debug" then
+		s.bsp.diagnostics.printdebug("Debug Enabled")
+	    s.debug=true
+	else if command = "reboot" then
+		s.bsp.diagnostics.printdebug("Rebooting")
+	    rebootsystem()
+	else
+		changenow(command)
+	endif
+	
+	return retval
+end Function
+
+
+
+
+
