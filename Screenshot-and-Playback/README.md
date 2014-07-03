@@ -15,7 +15,8 @@ Triggering Content Playback
 <p>The playback portion of the plugin can accept three commands:</p> 
 <ul>
 <li><code>play!filename</code>: Plays the image or video file specified after the "!".</li>
-<li><code>play!transition!transition_number</code>: Specifies the transition type between images that are played using this plugin. Use an integer to specify the desired transition:</li>
+<li><code>play!foldername</code>: Plays all image/video files contained within the specified file on the SD card.</li>
+<li><code>play!transition!transition_number</code>: Specifies the transition type between images that are played using this plugin. Use an integer after the second "!" character to specify the desired transition:</li>
 <ul>
 <li>0 - No transition: immediate blit</li>
 <li>1 to 4 - Wipes from top, bottom, left, or right.</li>
@@ -28,4 +29,5 @@ Triggering Content Playback
 <li>20 to 23 – Slides entire screen from top, bottom, left, or right.</li>
 <li>24 to 25 – Scales old image in, then the new one out again (this works as a pseudo rotation around a vertical or horizontal axis, respectively).</li>
 <li>26 to 29 – Expands a new image onto the screen from right, left, bottom, or top.</li>
+</ul>
 </ul>
