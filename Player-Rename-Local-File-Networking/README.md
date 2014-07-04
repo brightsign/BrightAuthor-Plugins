@@ -8,7 +8,7 @@ Renaming a Player with a User Variable
 
 Renaming a Player with a UDP or Plugin Message Command
 ------------------------------------------------------
-<p>Once the presentation is published, you can rename the player by sending a UDP or Plugin Message command with the following message body: <code>lfnrename![player_name]</code>. For example, to rename the player to "unit27", you can send a UDP message to the player with the body <code>lfnrename!unit27</code></p>.
+<p>Once the presentation is published, you can rename the player by sending a UDP or Plugin Message command with the following message body: <code>lfnrename![player_name]</code>. For example, to rename the player to "unit27", you can send a UDP message to the player with the body <code>lfnrename!unit27</code>.</p>
 
 <p><strong>Note</strong>: <em>The "lname" variable value will always overwrite the name specified in a UDP or Plugin Message command.</em></p>
 
