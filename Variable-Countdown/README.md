@@ -30,8 +30,8 @@ Creating a Countdown Process
 <p>The User Variable is counted down once each time a <code>Countdown![variable_name]</code> Plugin Message or UDP command is sent to the plugin. This means that you will need to create a background process that sends messages to the plugin at regular intervals. The following steps show one of many ways to do this:</p>
 <ol>
 <li>Create an Audio Only zone in the <strong>Edit > Layout</strong> section. Note that it does not matter what kind of zone you use, as long as it's not visible to the viewer.</li>
-<li>Add an Event Handler state to the new zone.</li>
-<li>Add a Timeout event to the Event Handler state. </li>
+<li>Add an <strong>Event Handler</strong> state to the new zone.</li>
+<li>Add a <strong>Timeout</strong> event to the <strong>Event Handler</strong> state. </li>
 <li>Set the event to <strong>Remain on current state</strong> and use the <strong>Specify timeout</strong> field to determine how often the timer should count down (i.e. once every second, once every 60 seconds).</li>
 <li>Navigate to the <strong>Advanced</strong> tab and select <strong>Add Command</strong>. Select <strong>Send > Send Plugin Message</strong>.</li>
 <li>Select the <em>var_countdown.brs</em> plugin. In the field to the right, enter <code>Countdown![variable_name]</code>, where the variable name specifies the variable you created earlier.</li>
