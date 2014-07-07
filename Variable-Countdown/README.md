@@ -35,6 +35,7 @@ Creating a Countdown Process
 <li>Set the event to <strong>Remain on current state</strong> and use the <strong>Specify timeout</strong> field to determine how often the timer should count down (i.e. once every second, once every 60 seconds).</li>
 <li>Navigate to the <strong>Advanced</strong> tab and select <strong>Add Command</strong>. Select <strong>Send > Send Plugin Message</strong>.</li>
 <li>Select the <em>var_countdown.brs</em> plugin. In the field to the right, enter <code>Countdown![variable_name]</code>, where the variable name specifies the variable you created earlier.</li>
+</ol>
 <p>Note that, once a countdown takes place, the variable value will not reset to its default value—even if the player is rebooted. If you need the countdown variable to reset to its default value at some point in the presentation, you can add a <strong>Reset Variable</strong> or <strong>Set Variable</strong> command to some point in the presentation. You can also have variables reset after reboot by checking the <strong>Reset variables to their default value on presentation start</strong> box in <strong>File > Presentation Properties > Variables</strong> tab.</p>
 
 Customizing the Plug-In
