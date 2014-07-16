@@ -2,6 +2,8 @@ Overview
 ---------
 <p>This plugin allows you to rotate a video or seek to a certain position in a video. These actions can be triggered using Plugin Message commands or UDP commands on port 555.</p>
 
+<p>When adding this plugin to your BrightAuthor project in <strong>File > Presentation Properties > Autorun</strong>, ensure that the plugin <strong>Name</strong> is specified as "custom".</p>
+
 Rotate
 ------
 <p>To trigger a rotation, the Plugin Message or UDP command must be formatted as follows:</p>
