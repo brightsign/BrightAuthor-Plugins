@@ -2,6 +2,8 @@ Overview
 ---------
 <p>This plugin allows you to change the name of a player using a User Variable. Alternatively, you can rename the player using a Plugin Message command or UDP command over the local network.</p>
 
+<p>When adding this plugin to a presentation in <strong>File > Presentation Properties > Autorun</strong>, ensure that the plugin <strong>Name</strong> is specified as "lfnrename".
+
 Renaming a Player with a User Variable
 ------------------
 <p>To rename a player with a User Variable, add a new variable with the <strong>Name</strong> "lname" and a <strong>Default Value</strong> corresponding to the new player name. Once the presentation is published, the player will reboot and rename itself. Whenever the player reboots, it will determine if the new name is already in use (and perform the reboot/rename operation if it is not).</p>
