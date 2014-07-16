@@ -2,7 +2,7 @@ Overview
 ---------
 <p>This plugin has two features: First, it takes a screeenshot of the player display output once every ten seconds (each screenshot image file overwrites the previous image file); second, it can display image or video files using a Plugin Message command or UDP command as a trigger.</p>
 
-<p>When adding this plugin to your BrightAuthor project in <strong>File > Presentation Properties > Autorun</strong>, ensure that the plugin <storng>Name</strong> is specified as "play".</p>
+<p>When adding this plugin to your BrightAuthor project in <strong>File > Presentation Properties > Autorun</strong>, ensure that the plugin <strong>Name</strong> is specified as "play".</p>
 
 Customizing the Screenshot Function
 -----------------------------------
