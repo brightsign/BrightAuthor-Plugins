@@ -1,6 +1,6 @@
 Overview
 --------
-<p>This plugin allows you to show or hide a Ticker or Clock zone using Plugin Message or UDP command. When adding this plugin to your BrightAuthor presentation in <strong>File > Presentation Properties > Autorun</strong>, make sure to specify the plugin <strong>Name</strong> as "custom".</p>
+<p>This plugin allows you to show or hide a Ticker or Clock zone using a Plugin Message or UDP command. When adding this plugin to your BrightAuthor presentation in <strong>File > Presentation Properties > Autorun</strong>, make sure to specify the plugin <strong>Name</strong> as "custom".</p>
 
 Sending Commands to the Plugin
 -----------------------------
