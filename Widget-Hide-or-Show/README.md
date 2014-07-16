@@ -18,3 +18,5 @@ Sending Commands to the Plugin
 <li><code>clock!show![zone_name]</code>: Causes the Clock zone with the specified <code>zone_name</code> to reappear on the screen.</li>
 <li><code>ticker!hide![zone_name]</code>: Causes the Ticker zone with the specified <code>zone_name</code> to disappear from the screen.</li>
 <li><code>ticker!show![zone_name]</code>: Causes the Ticker zone with the specified <code>zone_name</code> to reappear on the screen.</li>
+
+<p><strong>Note</strong>:<em> You can change the <strong>Name</strong> of each zone by navigating to the <strong>Edit > Layout</strong> tab. 
