@@ -1,10 +1,10 @@
 Overview
 ---------
-<p>This plugin allows you to return to the previous presentation when switching among presentations. Normally, when switching among a group of three or more presentations that are linked together with Switch Presentation command, there is no way to return to the previous presentation without using a complicated set of conditional expressions and User Variables. With this plugin, you can have the current presentation return to whatever presentation switched to it previously.</p>
+<p>This plugin allows you to return to the previous presentation when switching among presentations. Normally, when switching among a group of three or more presentations that are linked together with Switch Presentation command, there is no way to reliably return to the previous presentation without using a complicated set of conditional expressions and User Variables. With this plugin, you can have the current presentation return to whatever presentation switched to it previously.</p>
 
 Adding the Plugin to Presentations
 ----------------------------------
-<p>To add the plugin to a presentation, navigate to <strong>File > Presentation Properties > Autorun</strong> and click <strong>Add Script Plugin</strong>. Specify the plugin <strong>Name</strong> as "switch". Repeat this process for <em>every</em> presentation in the group (not just the presentations that will be using the plugin).</p>
+<p>To add the plugin to a presentation, navigate to <strong>File > Presentation Properties > Autorun</strong> and click <strong>Add Script Plugin</strong>. Specify the plugin <strong>Name</strong> as "switch". Make sure to add this plugin <em>every</em> presentation in the group (not just the presentations that will be using the plugin).</p>
 
 Adding Additional Switch Presentations
 -----------------------------------
