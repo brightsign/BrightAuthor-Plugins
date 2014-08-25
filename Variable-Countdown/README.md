@@ -1,6 +1,6 @@
 Overview
 --------------
-<p>This BrightAuthor plug-in allows you to create User Variables that count down from a customizable number at customizable intervals of both time and amount. This is useful if you would like to place timers within Live Text: For example, in between informational videos, you could display a Live Text zone announcing that “The next video will play in [variable value] minutes,” with the variable value diminishing by 1 every sixty seconds.</p>
+<p>This BrightAuthor plugin allows you to create User Variables that count down from a customizable number at customizable intervals of both time and amount. This is useful if you would like to place timers within Live Text: For example, in between informational videos, you could display a Live Text zone announcing that “The next video will play in [variable value] minutes,” with the variable value diminishing by 1 every sixty seconds.</p>
 <p>The interval of time represented by the variable can be determined when the presentation is published or determined dynamically with a serial event, UDP event, or Networked User Variable.</p>
 <strong>Note</strong>: <em>This plugin has been updated: It is now added to the presentation using the <strong>File > Presentation Properties > Autorun</strong> tab.</em>
 
@@ -23,7 +23,6 @@ Creating a Live Text State
 <li>Drag and drop the <strong>Live Text</strong> icon onto the playlist area.</li>
 <li>Enter a <strong>State name</strong> and specify a <strong>Background Image</strong> (if desired).</li>
 <li>Change the type of the text box to <strong>User Variable</strong> and select the user variable you created in the previous section.</li>
-<li>(Optional) Use the <strong>Add Item</strong> button to create additional text boxes for fixed text, user variables, data feeds, etc.</li>
 </ol>
 Creating a Countdown Process
 -----------------------------------------
@@ -38,12 +37,12 @@ Creating a Countdown Process
 </ol>
 <p>Note that, once a countdown takes place, the variable value will not reset to its default value—even if the player is rebooted. If you need the countdown variable to reset to its default value at some point in the presentation, you can add a <strong>Reset Variable</strong> or <strong>Set Variable</strong> command to some point in the presentation. You can also have variables reset after reboot by checking the <strong>Reset variables to their default value on presentation start</strong> box in <strong>File > Presentation Properties > Variables</strong> tab.</p>
 
-Customizing the Plug-In
+Customizing the Plugin
 -------------------------------
-<p>By default, the plugin counts down by 1 each time it is called, but you can customize this too by editing the parser file.</p>
+<p>By default, the plugin counts down by 1 each time it is called, but you can customize this too by editing the plugin file.</p>
 <ol>
 <li>Open the “var_countdown.brs” file using a text editor program (Notepad, TextMate, etc.).</li>
-<li>Locate the line that states <code>if tempval > 0 then tempval = tempval-1</code>. This is the argument that determines what happens each time the update interval occurs for the parser script.</li>
+<li>Locate the line that states <code>if tempval > 0 then tempval = tempval-1</code>. This is the argument that determines what happens each time the update interval occurs for the plugin script.</li>
 <li>Modify the equation after <code>tempval =</code> to create the desired behavior. For example, you can have the User Variable count down by five at each interval (<code>tempval = tempval-5</code>), or you can make the User Variable count up instead of down: (<code>if tempval >= 0 then current value = tempval+1</code>).</li>
 <li>Save the modified “var_countdown.brs” when you are finished making edits.</li>
 </ol>
