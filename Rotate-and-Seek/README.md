@@ -39,13 +39,14 @@ Scrolling Ticker
 ---------------
 <p>Use the following Plugin Message or UDP command to initialize a Ticker zone with scrolling text:</p>
 <code>ticker!scroll!x!y!w!h</code> 
-<p>The <code>x</code> and <code>y</code> parameters specify the coordinates of the top left corner of the zone, while the <code>w</code> and <code>h</code> parameters represent the width and height of the zone. Note that the Ticker zone is created by the plugin; you do not need to use <strong>Edit > Layout</strong> tab in BrightAuthor.</p>
+<p>The <code>x</code> and <code>y</code> parameters specify the coordinates of the top left corner of the zone, while the <code>w</code> and <code>h</code> parameters represent the width and height of the zone. Note that the Ticker zone is created by the plugin; you do not need to use the <strong>Edit > Layout</strong> tab in BrightAuthor.</p>
 
-Once the Ticker zone is initialized, it can be shown on screen using the <code>ticker!show</code> command. You can also use the following commands to manipulate the zone after it is initialized:
+Once the Ticker zone is initialized, you can use the following commands to configure and display the zone:
 <ul>
+<li><code>ticker!show</code>: Displays the Ticker zone.
 <li><code>ticker!add!text</code>: Adds the <code>text</code> to the list of strings displayed by the scrolling ticker.
 <li><code>ticker!message.txt</code>: Scrolls the contents of the <em>message.txt</em> file that is included with the presentation (miscellaneous files can be added to a presentation using the <strong>File > Presentation Properties > Files</strong> tab). Note that this command clears all other strings that have been added to the scrolling ticker.
 <li><code>ticker!hide</code>: Hides the ticker from view. It can be displayed again using the <code>ticker!show</code> command.</li>
 <li><code>ticker!clear</code>:  Clears all strings from the scrolling ticker. Note that this command only goes into effect once the current string completes scrolling (even if the ticker is hidden).</li>
-<li><code>ticker!solid</code>: Specifies a black background for the Ticker zone (this is the default display).</li>
+<li><code>ticker!solid</code>: Specifies a black background for the Ticker zone (this is the default setting).</li>
 <li><code>ticker!transparent</code>: Specifies a transparent background for the Ticker zone.</li>
