@@ -1,3 +1,9 @@
+
+'ticker!scroll - turns on scroller
+'ticker!message.txt - scrolls contents of message.txt file
+'ticker!add!this is my message - scrolls the string "this is my message"
+
+
 Function custom_Initialize(msgPort As Object, userVariables As Object, bsp as Object)
 
     print "custom_Initialize - entry"
@@ -16,15 +22,22 @@ Function newcustom(msgPort As Object, userVariables As Object, bsp as Object)
 
 	' Create the object to return and set it up
 	s = {}
-	s.version = .5
+	s.version = 1.13
 	s.msgPort = msgPort
 	s.userVariables = userVariables
 	s.bsp = bsp
 	s.ProcessEvent = custom_ProcessEvent
 	s.settings$=""
 	s.getsettings = custom_getsettings
+	s.findwidget = custom_findwidget
+	s.newscroll = ticker_newscroll
 	s.objectName = "custom_object"
-
+	s.mytickerbox = CreateObject("roRectangle",40,945,1840,100)	
+	s.tickerx=-1
+	s.tickery=-1
+	s.tickerwidth=-1
+	s.tickerheight=-1
+	
 	s.udpReceiverPort = 555
 	s.udpReceiver = CreateObject("roDatagramReceiver", s.udpReceiverPort)
 	s.udpReceiver.SetPort(msgPort)
@@ -60,11 +73,33 @@ Function custom_ProcessEvent(event As Object) as boolean
 				retval = ParsecustomPluginMsg(msg$, m)
 			end if
 
+			if (left(msg$,6) = "ticker") then
+				retval = ParsecustomPluginMsg(msg$, m)
+			end if
+
+
 			if (left(msg$,6) = "rotate") then
 				retval = ParsecustomPluginMsg(msg$, m)
 			end if
-			
 	
+			if (left(msg$,4) = "fade") then
+				retval = ParsecustomPluginMsg(msg$, m)
+			end if
+			
+	else if type(event) = "roVideoEvent" then
+		
+			eventData = event.GetInt()
+			
+			if eventdata = 18 then 'end fade
+				myevent$ = "ef"
+				print "roVideoEvent, End Fade"
+			
+				pluginMessageCmd = CreateObject("roAssociativeArray")
+				pluginMessageCmd["EventType"] = "EVENT_PLUGIN_MESSAGE"
+				pluginMessageCmd["PluginName"] = "Custom"
+				pluginMessageCmd["PluginMessage"] = myevent$
+				m.msgPort.PostMessage(pluginMessageCmd)
+			endif
 	end if
 
 	return retval
@@ -86,6 +121,15 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 	'verify if it's a seek message
 	q = CreateObject("roRegex", "^seek", "i")
 	seek_match=q.IsMatch(msg)
+
+	'verify if it's a fade message
+	o = CreateObject("roRegex", "^fade", "i")
+	fade_match=o.IsMatch(msg)
+
+	'verify if it's a ticker message
+	w = CreateObject("roRegex", "^ticker", "i")
+	ticker_match=w.IsMatch(msg)
+	
 	
 	
 	' Is this a rotate request
@@ -105,8 +149,8 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 			param2 = fields[2]
 			
 			for each zone in s.bsp.sign.zonesHSM
-				if (zone.name$ = zoneName$) then
-					print "Found Rotate Zone: "; zonename$
+				if lcase(zone.name$) = lcase(zoneName$) then
+					print "Found Rotate Zone: "; zoneName$
 					if s.getsettings(param2) then
 						zone.videoPlayer.SetTransform(s.setting$)
 					else
@@ -117,7 +161,7 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 			next
 		else if numFields = 2 then
 			param = fields[1]
-			
+			print "2 fields"
 			for each zone in s.bsp.sign.zonesHSM
 				if zone.videoplayer <> invalid then 
 					if s.getsettings(param) then 
@@ -148,9 +192,9 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 			zoneName$ = fields[1]
 			param2 = int(val(fields[2]))
 			for each zone in s.bsp.sign.zonesHSM
-				if (zone.name$ = zoneName$) then
+				if lcase(zone.name$) = lcase(zoneName$) then
 					print "Found Seek Zone: "; zonename$
-						zone.videoPlayer.Seek(param2)
+					zone.videoPlayer.Seek(param2)
 				endif
 			next
 			
@@ -165,6 +209,185 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 			next
 			
 			's.bsp.sign.zoneshsm[0].videoplayer.Seek(param2)
+		endif
+
+
+	else if fade_match then	'fade request
+		print "fade matched"
+		retval = true
+
+		' split the string
+		r2 = CreateObject("roRegex", "!", "i")
+		fields=r2.split(msg)
+		numFields = fields.count()
+	
+		if numFields = 2 then
+
+			param2 = int(val(fields[1]))
+			print "param2: ";param2			
+			for each zone in s.bsp.sign.zonesHSM
+				if zone.videoplayer <> invalid then
+					aa=CreateObject("roAssociativeArray")
+					aa["FadeOutLength"] = param2
+					zone.videoplayer.SetFade(aa)
+					exit for
+				endif
+			next
+
+		else if numFields = 3 then
+			'expects fade!zonename!setting
+
+			print "3 Fields"
+			zoneName$ = fields[1]
+			param2 = int(val(fields[2]))
+			
+			for each zone in s.bsp.sign.zonesHSM
+				if (lcase(zone.name$) = lcase(zoneName$)) then
+					print "Found Fade Zone: "; zoneName$
+					
+					if zone.videoplayer <> invalid then
+						aa=CreateObject("roAssociativeArray")
+						aa["FadeOutLength"] = param2
+						zone.videoplayer.SetFade(aa)
+					else
+						print "no Video Player in this zone:"; zoneName$
+					endif
+
+				endif
+			next
+			
+		endif
+
+
+	else if ticker_match then	'ticker request
+		print "ticker matched"
+		retval = true
+
+		' split the string
+		r2 = CreateObject("roRegex", "!", "i")
+		fields=r2.split(msg)
+		numFields = fields.count()
+	
+		if numFields = 2 then
+			print "2 fields"
+			param = fields[1]
+			print "param: ";param
+
+
+			if param = "scroll" then
+			
+					s.newscroll()
+				    'if s.mytw <> invalid then s.mytw.Show()
+
+			else if param = "hide" then
+				if s.mytw <> invalid then s.mytw.Hide()
+			else if param = "show" then
+				if s.mytw <> invalid then s.mytw.Show()
+			else if param = "transparent" then
+				if s.mytw <> invalid then s.mytw.SetBackgroundColor(0)
+			else if param = "solid" then
+				if s.mytw <> invalid then s.mytw.SetBackgroundColor(255*256*256*256)				
+			else if param = "clear" then
+					if s.mytw <> invalid then
+						dlog("Clearing strings from Ticker")
+						s.mytw.clear()
+					endif
+					
+			else
+
+				if s.mytw <> invalid then
+					
+					if ucase(right(param, 3)) = "TXT" then
+						path$=""
+						
+						if s.bsp.syncpoolfiles <> invalid then 
+							path$=GetPoolFilePath(s.bsp.syncPoolFiles, param)
+						else if s.bsp.assetpoolfiles <> invalid then
+							path$=GetPoolFilePath(s.bsp.assetpoolfiles, param)
+						endif
+						
+						print "Debug, line 301, path =: ";path$
+						if path$="" then
+							s.newscroll()
+							s.mytw.SetStringSource(param)
+							S.mytw.show()
+						else
+							s.newscroll()
+							s.mytw.SetStringSource(path$)
+							S.mytw.show()
+						endif
+						
+					else
+						s.mytw.PushString(param)
+					endif
+				endif
+			
+
+			endif
+
+		else if numFields = 3 then
+
+			param = fields[1]	'command
+			param2 = fields[2]	'String or file name
+			print "3 fields"; param; param2
+			
+			if s.mytw <> invalid then
+				if param = "file" then
+					if ucase(right(param2, 3)) = "TXT" then
+						path$=""
+						
+						if s.bsp.syncpoolfiles <> invalid then 
+							path$=GetPoolFilePath(s.bsp.syncPoolFiles, param)
+						else if s.bsp.assetpoolfiles <> invalid then
+							path$=GetPoolFilePath(s.bsp.assetpoolfiles, param)
+						endif
+						
+						print "Debug, line 332, path =: ";path$
+						if path$="" then
+							s.newscroll()
+							s.mytw.SetStringSource(param)
+							S.mytw.show()
+						else
+							s.newscroll()
+							s.mytw.SetStringSource(path$)
+							S.mytw.show()
+						endif
+
+					endif
+				
+				else if param = "add" then
+					s.mytw.PushString(param2)
+				
+				else if param = "replace" then
+					nstring = s.mytw.GetStringCount()
+					s.mytw.PushString(param2)	
+					if nstring >= 1 then s.mytw.Popstrings(1)
+				endif	
+				
+				
+			endif
+		
+		else if numFields = 6 then
+			param = fields[1]	'command
+			param2 = int(val(fields[2]))	'String or file name
+			param3 = int(val(fields[3]))
+			param4 = int(val(fields[4]))
+			param5 = int(val(fields[5]))
+			print "6 fields"; param; param2; param3; param4; param5
+			
+			if param = "scroll" then
+				if param2 >= 0 and param2 <= 1900 then
+						if param3 >= 0 and param3 <= 1060 then 
+							if param4 >= 20 and param4 + param2 <= 1920 then 
+								if param5 >= 20 and param5 + param3 <= 1080 then 
+									s.mytickerbox = CreateObject("roRectangle",param2,param3,param4,param5)
+									s.newscroll()
+								endif
+							endif
+						endif
+				endif
+			endif
+
 		endif
 		
 	endif
@@ -212,3 +435,37 @@ end Function
 'mirror_rot90 - mirror and 90 degree clockwise rotation
 'mirror_rot180 - mirror and 180 degree rotation (a vertical reflection)
 'mirror_rot270 - mirror and 270 degree rotation (a transpose).
+
+
+Sub custom_findwidget()
+
+	for each zone in m.bsp.sign.zonesHSM
+		if zone.widget <> invalid then
+			if type(zone.widget) = "roTextWidget" then
+				m.mytwidget = zone.widget
+				m.mytwidgetr = zone.rectangle
+			endif
+	
+		endif
+	next	
+end Sub
+
+
+sub dlog(message$ as string)
+	slog = createobject("roSystemLog")
+	slog.sendline(message$)
+	'm.bsp.logging.WriteDiagnosticLogEntry("99plgn", (message$)
+	'm.bsp.diagnostics.printdebug(message$)
+	'if m.debug print (message$)
+
+end sub
+
+Sub ticker_newscroll()
+		twParams = CreateObject("roAssociativeArray")
+		twParams.LineCount = 1
+		twParams.TextMode = 3
+		twParams.Rotation = 0
+		twParams.Alignment = 0
+		m.mytw=CreateObject("roTextWidget",m.mytickerbox,1,2,twparams)		
+End sub
+
