@@ -39,7 +39,7 @@ Scrolling Ticker
 ---------------
 <p>Use the following Plugin Message or UDP command to initialize a Ticker zone with scrolling text:</p>
 <code>ticker!scroll!x!y!w!h</code> 
-<p>The <code>x</code> and <code>y</code> parameters specify the coordinates of the top left corner of the zone, and <code>w</code> and <code>h</code> parameters represent the width and height of the zone. Note that the Ticker zone is not created using the <strong>Edit > Layout</strong> tab in BrightAuthor.</p>
+<p>The <code>x</code> and <code>y</code> parameters specify the coordinates of the top left corner of the zone, while the <code>w</code> and <code>h</code> parameters represent the width and height of the zone. Note that the Ticker zone is not created using the <strong>Edit > Layout</strong> tab in BrightAuthor.</p>
 
 Once the Ticker zone is initialized, it can be shown on screen using the <code>ticker!show</code> command. You can also use the following commands to manipulate the zone after it is initialized:
 <ul>
