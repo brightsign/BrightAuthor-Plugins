@@ -1,7 +1,7 @@
 
 'ticker!scroll - turns on scroller
 'ticker!message.txt - scrolls contents of message.txt file
-'ticker!add!this is my message - scrolls the string "this is my message"
+'ticker!this is my message - scrolls the string "this is my message"
 
 
 Function custom_Initialize(msgPort As Object, userVariables As Object, bsp as Object)
@@ -109,9 +109,8 @@ End Function
 Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 	print "Parsing plugin message command"
 	retval = false
-		
-	' convert the message to all lower case for easier string matching later
-	msg = lcase(origMsg)
+
+	msg = origMsg
 	print "Received Plugin message: " + msg
 	
 	' verify its a rotate message'
@@ -126,7 +125,7 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 	o = CreateObject("roRegex", "^fade", "i")
 	fade_match=o.IsMatch(msg)
 
-	'verify if it's a ticker message
+	'verify if it's a fade message
 	w = CreateObject("roRegex", "^ticker", "i")
 	ticker_match=w.IsMatch(msg)
 	
@@ -274,20 +273,20 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 			print "param: ";param
 
 
-			if param = "scroll" then
+			if lcase(param) = "scroll" then
 			
 					s.newscroll()
 				    'if s.mytw <> invalid then s.mytw.Show()
 
-			else if param = "hide" then
+			else if lcase(param) = "hide" then
 				if s.mytw <> invalid then s.mytw.Hide()
-			else if param = "show" then
+			else if lcase(param) = "show" then
 				if s.mytw <> invalid then s.mytw.Show()
-			else if param = "transparent" then
+			else if lcase(param) = "transparent" then
 				if s.mytw <> invalid then s.mytw.SetBackgroundColor(0)
-			else if param = "solid" then
+			else if lcase(param) = "solid" then
 				if s.mytw <> invalid then s.mytw.SetBackgroundColor(255*256*256*256)				
-			else if param = "clear" then
+			else if lcase(param) = "clear" then
 					if s.mytw <> invalid then
 						dlog("Clearing strings from Ticker")
 						s.mytw.clear()
@@ -332,7 +331,7 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 			print "3 fields"; param; param2
 			
 			if s.mytw <> invalid then
-				if param = "file" then
+				if lcase(param) = "file" then
 					if ucase(right(param2, 3)) = "TXT" then
 						path$=""
 						
@@ -355,10 +354,10 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 
 					endif
 				
-				else if param = "add" then
+				else if lcase(param) = "add" then
 					s.mytw.PushString(param2)
 				
-				else if param = "replace" then
+				else if lcase(param) = "replace" then
 					nstring = s.mytw.GetStringCount()
 					s.mytw.PushString(param2)	
 					if nstring >= 1 then s.mytw.Popstrings(1)
@@ -375,7 +374,7 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 			param5 = int(val(fields[5]))
 			print "6 fields"; param; param2; param3; param4; param5
 			
-			if param = "scroll" then
+			if lcase(param) = "scroll" then
 				if param2 >= 0 and param2 <= 1900 then
 						if param3 >= 0 and param3 <= 1060 then 
 							if param4 >= 20 and param4 + param2 <= 1920 then 
@@ -397,28 +396,28 @@ end Function
 
 Function custom_getsettings(param$ as String) as Boolean
 	
-if param$ = "norot" then 
+if lcase(param$) = "norot" then 
 	m.setting$ = "identity"
 	return true
-else if param$ = "r90" then 
+else if lcase(param$) = "r90" then 
 	m.setting$ = "rot90"
 	return true
-else if param$ = "r180" then 
+else if lcase(param$) = "r180" then 
 	m.setting$ = "rot180"
 	return true
-else if param$ = "r270" then 
+else if lcase(param$) = "r270" then 
 	m.setting$ = "rot270"
 	return true
-else if param$ = "mirror" then 
+else if lcase(param$) = "mirror" then 
 	m.setting$ = "mirror"
 	return true
-else if param$ = "m90" then 
+else if lcase(param$) = "m90" then 
 	m.setting$ = "mirror_rot90"
 	return true
-else if param$ = "m180" then 
+else if lcase(param$) = "m180" then 
 	m.setting$ = "mirror_rot180"
 	return true
-else if param$ = "m270" then 
+else if lcase(param$) = "m270" then 
 	m.setting$ = "mirror_rot270"
 	return true
 endif
