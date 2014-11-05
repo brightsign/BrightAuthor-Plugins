@@ -34,6 +34,7 @@
 
 <p>To resize the text widget, locate line 45 in the plugin, which specifies the size of the widget by creating an <em>roRectangle</em> object. You can manually input the size and location of the widget by editing the object creation parameters: <code>CreateObject("roRectangle", x, y, width, height)</code></p>
 
-<strong>Example</strong>: <code>s.rect=CreateObject("roRectangle", 0, 900, 1920, 180)</code>
+<p><strong>Example</strong>: The following edit creates a subtitle widget that occupies a strip at the bottom of a 1920x1080 display.</p>
+<code>s.rect=CreateObject("roRectangle", 0, 900, 1920, 180)</code>
 
 
