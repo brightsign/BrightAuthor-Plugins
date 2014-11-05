@@ -29,7 +29,7 @@
 </ol>
 <p>The subtitles will now display whenever a subtitled video plays. There is no need to create the text widget or trigger the plugin with commands.</p>
 
-<h4>Resizing the Subtitle Zone</h4>
+<h4>Resizing the Subtitle Widget</h4>
 <p>By default, the text widget that displays the subtitles is sized using an "action safe" area, ensuring that the text remains within a viewable area on the screen. You may wish to resize this zone so that it better fits the size and layout of your presentation.</p>
 
 <p>To resize the text widget, locate line 45 in the plugin, which specifies the size of the widget by creating an <em>roRectangle</em> object. You can manually input the size and location of the widget by editing the object creation parameters: <code>CreateObject("roRectangle", x, y, width, height)</code></p>
