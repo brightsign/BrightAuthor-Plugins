@@ -21,13 +21,19 @@
 <p>To insert points where no subtitles are displayed, specify a time code followed by a blank line.</p>
 
 <h4>Adding the Plugin and Subtitles</h4>
-<p>Follow these steps to setup up the plug-in in your BrightAuthor presentation</p>
+<p>Follow these steps to add the plugin and subtitle files to your BrightAuthor presentation</p>
 <ol>
 <li>Navigate to <strong>File > Presentation Properties > Autorun</strong>.</li>
 <li>Click <strong>Add Script Plugins</strong> and locate the "subtitles_widget.brs" file. Ensure that the plugin <strong>Name</strong> is specified as "custom".</li>
 <li>Navigate to <strong>File > Presentation Properties > Files</strong>. Use the <strong>Add File</strong> button to add a <em>.txt</em> subtitle file for each video file you wish to subtitle.</li>
 </ol>
-<p>Subtitles will display whenever a subtitled video plays. There is no need to create the text widget or trigger the plugin with commands.</p>
+<p>The subtitles will now display whenever a subtitled video plays. There is no need to create the text widget or trigger the plugin with commands.</p>
 
+<h4>Resizing the Subtitle Zone</h4>
+<p>By default, the text widget that displays the subtitles is sized using an "action safe" area, ensuring that the text remains within a viewable area on the screen. You may wish to resize this zone so that it better fits the size and layout of your presentation.</p>
+
+<p>To resize the text widget, locate line 45 in the plugin, which specifies the size of the widget by creating an <em>roRectangle</em> object. You can manually input the size and location of the widget by editing the object creation parameters: <code>CreateObject("roRectangle", x, y, width, height)</code></p>
+
+<strong>Example</strong>: <code>s.rect=CreateObject("roRectangle", 0, 900, 1920, 180)</code>
 
 
