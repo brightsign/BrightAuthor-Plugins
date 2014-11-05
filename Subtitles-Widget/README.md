@@ -2,7 +2,7 @@
 
 <p>This plugin allows you to display subtitles for a video file using an attached <em>.txt</em> file. It also supports subtitles for multiple video files per presentation.</p>
 
-<h4>Creating the subtitles</h4>
+<h4>Creating the Subtitles</h4>
 <p>Create a new text file using Notepad or another program. Use the same filename (excepting the extension) as the associated video file: For example, if you had two video files named "Information_Clip.mov" and "Transition.mp4", you would name the associated subtitle files "Information_Clip.txt" and "Transition.txt", respectively.</p>
 
 <p>Above each line of subltitle text, specify the video time code at which the text should appear, as in the following example:</p>
