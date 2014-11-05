@@ -24,7 +24,7 @@
 <p>Follow these steps to setup up the plug-in in your BrightAuthor presentation</p>
 <ol>
 <li>Navigate to <strong>File > Presentation Properties > Autorun</strong>.</li>
-<li>Click <strong>Add Script Plugins</strong> and locate the "Subtitles_Widget.brs" file. Ensure that the plugin <strong>Name</strong> is specified as "custom".</li>
+<li>Click <strong>Add Script Plugins</strong> and locate the "subtitles_widget.brs" file. Ensure that the plugin <strong>Name</strong> is specified as "custom".</li>
 <li>Navigate to <strong>File > Presentation Properties > Files</strong>. Use the <strong>Add File</strong> button to add a <em>.txt</em> subtitle file for each video file you wish to subtitle.</li>
 </ol>
 <p>Subtitles will display whenever a subtitled video plays. There is no need to create the text widget or trigger the plugin with commands.</p>
