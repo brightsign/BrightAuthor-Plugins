@@ -12,14 +12,14 @@ Configuring Chroma/Luma Values
 --------
 <p>To set the Chroma/Luma values for a zone, use a Plugin Message command formatted as follows:</p>
 <code>chromaLuma![zone\_name]![luma\_value]![cr\_value]![cb\_value]</code>
-
+<p>
 <ul>
-	<li><code>[zone\_name]</code>: The name of the zone to which the keying values will be applied. The BrightAuthor zone name must be in all lowercase for it to match the plugin message. You can edit the zone name can in the <strong>Edit > Layout</strong> tab.</li>
-	<li><code>[luma\_value]</code>: The Luma value to be applied to the zone.</li>
-	<li><code>[cr\_value]</code>: The cr Chroma value to be applied to the zone.</li>
-	<li><code>[cb\_value]</code>: The cb Chroma value to be applied to the zone.</li>
+	<li><code>[zone_name]</code>: The name of the zone to which the keying values will be applied. The BrightAuthor zone name must be in all lowercase for it to match the plugin message. You can edit the zone name can in the <strong>Edit > Layout</strong> tab.</li>
+	<li><code>[luma_value]</code>: The Luma value to be applied to the zone.</li>
+	<li><code>[cr_value]</code>: The cr Chroma value to be applied to the zone.</li>
+	<li><code>[cb_value]</code>: The cb Chroma value to be applied to the zone.</li>
 </ul>
-
+</p>
 <p>The luma, cr, and cb values work by applying a mask to each pixel in the video window. If a pixel value falls within the specified range of chroma and luma key values, the pixel will appear transparent, allowing video and graphics behind it to show through.</p>
 
 <p>The luma, cr, and cb values are specified as follows: <code>[8 bits of mask][8 bits of high-end range][8 bits of low-end range]</code>. For example, the following plugin message will mask all black (or near-black) luma values for videos in the zone named "top_zone", allowing for video or graphics in a zone behind it to show through (the masking values for Cr/Cb are left undefined using the <code>000000</code> value for each):</p>
