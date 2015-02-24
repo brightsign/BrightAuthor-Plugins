@@ -32,7 +32,7 @@ Configuring Chroma/Luma Values
 	<li><code>00</code>: This value specifies the low-end of the luma range to be masked.</li>
 </ul>
 
-<p>The following Plugin Message could will also render black pixels transparent:</p>
+<p>The following Plugin Message will also render black pixels transparent:</p>
 <code>chromaLuma!top_zone!FF2000!FF8778!FF8778</code>
 
 <p>Conversely, this Plugin Message can be used to render white pixels transparent:</p>
