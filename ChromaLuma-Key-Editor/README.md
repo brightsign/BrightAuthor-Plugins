@@ -27,7 +27,7 @@ Configuring Chroma/Luma Values
 
 <p>The luma values correspond to the following:</p>
 <ul>
-	<li><code>FF</code>: This value specifies the mask for the pixel value. This value is usally set to 0xFF (255).</li>
+	<li><code>FF</code>: This value specifies the mask for the pixel value. This value is usually set to 0xFF (255).</li>
 	<li><code>20</code>: This value specifies the high-end of the luma range to be masked.</li>
 	<li><code>00</code>: This value specifies the low-end of the luma range to be masked.</li>
 </ul>
@@ -35,7 +35,7 @@ Configuring Chroma/Luma Values
 <p>The following Plugin Message could will also render black pixels transparent:</p>
 <code>chromaLuma!top_zone!FF2000!FF8778!FF8778</code>
 
-<p>Conversley, this Plugin Message can be used to render white pixels transparent:</p>
+<p>Conversely, this Plugin Message can be used to render white pixels transparent:</p>
 <code>chromaLuma!top_zone!FFEBB4!FFF064!FFF064</code>
 
 Using a Backdrop Zone in BrightAuthor
