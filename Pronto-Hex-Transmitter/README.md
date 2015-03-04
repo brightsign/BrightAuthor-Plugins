@@ -2,7 +2,7 @@
 
 ###Overview
 <p>
-<strong>Note</strong>:<em>As of version 3.8.0.27, BrightAuthor now supports sending Pronto Hex Codes natively using the <strong>Send IR Remote (Pronto)</strong> command. If you're using version 3.8.0.27 or later, this plugin is unnecessary.</em>
+<strong>Note</strong>:<em> As of version 3.8.0.27, BrightAuthor now supports sending Pronto Hex Codes natively using the <strong>Send IR Remote (Pronto)</strong> command. If you're using version 3.8.0.27 or later, this plugin is unnecessary.</em>
 </p>
 <p>
 As of firmware version 4.7.96, BrightSign system software allows sending and receiving using the <a href="http://www.remotecentral.com/features/irdisp2.htm">Pronto Hex Code</a> (PHC) protocol. You can use the <em>sendir.brs</em> plugin to send PHC formatted IR commands from a BrightAuthor presentation.
