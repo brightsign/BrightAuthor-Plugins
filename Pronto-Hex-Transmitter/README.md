@@ -14,7 +14,7 @@ This ReadMe file explains how to add PHC codes to the plugin for different produ
 ###Editing the Plugin
 By default, the plugin comes with “tvon”, “tvoff”, “prjon”, and “prjoff” commands already specified. However, the codes sent by the plugin will probably not work with your specific product. Therefore, you will need to edit the <em>sendir.brs</em> plugin file to make the PHC commands compatible.
 <ol>
-<li>Visit this site and locate the brand and model of your product. You will be provided with a list of compatible PHC codes for the device.</li>
+<li>Visit <a href="http://www.remotecentral.com/cgi-bin/codes/">this site</a> and locate the brand and model of your product. You will be provided with a list of compatible PHC codes for the device.</li>
 <li>Open the sendir.brs file with a text editor program (Notepad, TextMate, etc.).</li>
 <li>Locate the <code>&lt;s.tvoff&gt;</code>, <code>&lt;s.tvon&gt;</code>, <code>&lt;s.prjoff&gt;</code>, and <code>&lt;s.prjon&gt;</code> values within the newSendIR function.</li>
 <li>For each command you wish to use, replace the PHC command string in the script with the PHC command string found on the website in Step 1.</li>
