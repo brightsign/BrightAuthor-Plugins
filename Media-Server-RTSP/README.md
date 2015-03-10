@@ -9,10 +9,10 @@ Details
 <p>Streaming File from Client: rtsp://ServerIpAddress:8090/file:///folder/file.ts</p>
 <p>rtsp://ServerIpAddress:8090/file:///file.ts</p>
 
-Server Options
+Server Parameters
 ------------------
 <p><strong>Maxbitrate</strong></p>
-<p>sets the maximum instantaneous bitrate of the RTP transfer initiated by RTSP. This has no effect for HTTP. The units are in Kbps; the parameter value 80000 (meaning 80Mbps) has been found to work well for streaming to XD players. The default behaviour (achieved by passing the value zero) is to not limit the bitrate at all.</p>
+<p>Sets the maximum instantaneous bitrate of the RTP transfer initiated by RTSP. This has no effect for HTTP. The units are in Kbps; the parameter value 80000 (meaning 80Mbps) has been found to work well for streaming to XD players. The default behaviour (achieved by passing the value zero) is to not limit the bitrate at all.</p>
 
 <p>Example: "rtsp:port=554&trace&maxbitrate=80000"</p>
 
