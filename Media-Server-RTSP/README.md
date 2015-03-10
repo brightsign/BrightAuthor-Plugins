@@ -1,6 +1,7 @@
 Overview
 --------
-<p>This plugin converts an XD player to a Media Server that waits for clients to connect, and then starts streaming to them.  XD players support up to four 19Mbps streams when the files being streamed are cached (i.e. they aren't being read from the SD card). The XD Media Server currently only supports MPEG-2 transport stream files.</p>
+<p>This plugin converts an XD or 4K player to a Media Server that waits for clients to connect, and then starts streaming to them. When the files being streamed are cached (i.e. they aren't being read from the SD card), XD players support up to four 19Mbps streams. 4K players support up to 50 19Mbps streams of the same file or 11 streams (16Mbps average) of different files.</p>
+<p>The Media Server currently only supports MPEG-2 transport stream files.</p>
 
 Details
 -------------
