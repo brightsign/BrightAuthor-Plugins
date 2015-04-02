@@ -1,6 +1,6 @@
 Overview
 ----------
-<p>This plugin allows you to display 4K images using a 4K242, 4K1042, or 4K1142 player. The images are played alphabetically from a folder manually placed on the SD--as a result, this plugin can currently only be used with the Standalone publishing method. Download (this presentation)[http://brightsignnetwork.com/download/Romeo/Play4KImagesFrom4KimagesFolder.zip] to see an example of how this plugin is used.</p>
+<p>This plugin allows you to display 4K images using a 4K242, 4K1042, or 4K1142 player. The images are played alphabetically from a folder manually placed on the SD--as a result, this plugin can currently only be used with the Standalone publishing method. Download [this presentation](http://brightsignnetwork.com/download/Romeo/Play4KImagesFrom4KimagesFolder.zip) to see an example of how this plugin is used.</p>
 
 <p><strong>Note</strong>:<em>This plugin uses the 4K video decoder to display 4K images; this means that you cannot display a 4K image and a 4K video at the same time. You can, however, display a 4K image and an HD video simultaneously if desired.</em></p>
 
