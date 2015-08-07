@@ -13,7 +13,7 @@ Function chromaLuma_Initialize(msgPort As Object, userVariables As Object, bsp a
 End Function
 
 
-Function newChromaLuma(msgPort As Object, userVariables As Object, bsp as Object) As Objectv
+Function newChromaLuma(msgPort As Object, userVariables As Object, bsp as Object) As Object
 
 	print "chromaLuma"
 
