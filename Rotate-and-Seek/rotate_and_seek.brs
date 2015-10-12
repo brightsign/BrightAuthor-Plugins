@@ -37,6 +37,7 @@ Function newcustom(msgPort As Object, userVariables As Object, bsp as Object)
 	s.tickery=-1
 	s.tickerwidth=-1
 	s.tickerheight=-1
+	s.speed! = 1.0
 	
 	s.udpReceiverPort = 555
 	s.udpReceiver = CreateObject("roDatagramReceiver", s.udpReceiverPort)
@@ -48,10 +49,7 @@ End Function
 
 
 Function custom_ProcessEvent(event As Object) as boolean
-
 	retval = false
-    ' print "custom_ProcessEvent - entry"
-    ' print "type of m is ";type(m)
     print "custom_ProcessEvent - type of event is ";type(event)
 
 	if type(event) = "roAssociativeArray" then
@@ -129,6 +127,9 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 	w = CreateObject("roRegex", "^ticker", "i")
 	ticker_match=w.IsMatch(msg)
 	
+	'verify if it's a fade message
+	n = CreateObject("roRegex", "^speed", "i")
+	speed_match=n.IsMatch(msg)	
 	
 	
 	' Is this a rotate request
@@ -142,8 +143,6 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 		
 		if numFields = 3 then
 			'expects rotate!zonename!setting
-
-			print "3 Fields"
 			zoneName$ = fields[1]
 			param2 = fields[2]
 			
@@ -151,20 +150,22 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 				if lcase(zone.name$) = lcase(zoneName$) then
 					print "Found Rotate Zone: "; zoneName$
 					if s.getsettings(param2) then
-						zone.videoPlayer.SetTransform(s.setting$)
+						if zone.videoplayer <> invalid then zone.videoplayer.SetTransform(s.setting$)
+						if zone.imageplayer <> invalid then zone.imageplayer.SetTransform(s.setting$)
 					else
-						zone.videoplayer.SetTransform()
+						if zone.videoplayer <> invalid then zone.videoplayer.SetTransform()
+						if zone.imageplayer <> invalid then zone.imageplayer.SetTransform()
 					endif
 
 				endif
 			next
 		else if numFields = 2 then
 			param = fields[1]
-			print "2 fields"
 			for each zone in s.bsp.sign.zonesHSM
 				if zone.videoplayer <> invalid then 
 					if s.getsettings(param) then 
-						zone.videoplayer.SetTransform(s.setting$)
+						if zone.videoplayer <> invalid then zone.videoplayer.SetTransform(s.setting$)
+						if zone.imageplayer <> invalid then zone.imageplayer.SetTransform(s.setting$)
 						exit for
 					endif
 				endif
@@ -174,7 +175,46 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 			
 		endif
 	
-	
+	else if speed_match then	'speed up or slowdown video
+		retval = true
+
+		' split the string
+		r2 = CreateObject("roRegex", "!", "i")
+		fields=r2.split(msg)
+		numFields = fields.count()
+		tspeed! = 5.0
+		
+		if numFields = 3 then
+			'expects speed!zone!setting
+			zoneName$ = fields[1]
+			
+			if type(fields[2].tofloat()) = "Float" then tspeed! = fields[2].tofloat()
+			s.speed! = tspeed!
+			for each zone in s.bsp.sign.zonesHSM
+				if lcase(zone.name$) = lcase(zoneName$) then
+					print "Found Speed Zone: "; zonename$
+					zone.videoPlayer.SetPlaybackSpeed(s.speed!)
+				endif
+			next
+			
+		else if numFields = 2 then
+			'expects speed!setting	'1.0 normal, 1.5 - 1.5x playback speed
+			
+			if type(fields[1].tofloat()) = "Float" then tspeed! = fields[1].tofloat()
+			print type(fields[1].tofloat())
+			s.speed! = tspeed!
+			
+			print "speed: ";s.speed!
+			for each zone in s.bsp.sign.zonesHSM
+				if zone.videoplayer <> invalid then 
+					zone.videoplayer.SetPlaybackSpeed(s.speed!)
+					exit for
+				endif
+			next
+			
+			's.bsp.sign.zoneshsm[0].videoplayer.Seek(param2)
+		endif
+		
 	else if seek_match then	'seek request
 		retval = true
 
