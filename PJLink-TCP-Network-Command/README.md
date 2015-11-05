@@ -24,7 +24,7 @@ This plugin includes two named commands: "poweron" and "poweroff". Otherwise act
 There are two methods of usage for this plugin:
 
 1. Using Send Plugin Message in an interactive presentation:
-	* **Advanced > Send > Send Plugin Message**. Select the "pjlink" plugin. In the parameters block, enter on of the following:
+	* **Advanced > Send > Send Plugin Message**. Select the "pjlink" plugin. In the parameters block, enter one of the following:
 	* **poweron**
 	* **poweroff**
 	* Any raw PJLink command, such as **INPT 32** to switch to the digital input.
