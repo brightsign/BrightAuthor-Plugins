@@ -15,17 +15,17 @@ Function newplay(msgPort As Object, userVariables As Object, bsp as Object)
 	print "newplay"
 
 	s = {}
-	s.version = 0.2
+	s.version = 1.1
 	s.msgPort = msgPort
 	s.userVariables = userVariables
 	s.bsp = bsp
 	s.ProcessEvent = play_ProcessEvent
-	s.dlog = dlog
-	s.playimage = playimage
-	s.playvideo = playvideo
-	s.playfile = playfile
-	s.playfolder = playfolder	'video only currently
-	s.startmytimer = startmytimer
+	s.dlog = play_dlog
+	s.playimage = play_playimage
+	s.playvideo = play_playvideo
+	s.playfile = play_playfile
+	s.playfolder = play_playfolder	'video only currently
+	s.startmytimer = play_startmytimer
 	s.playlist = false
 	s.loop = false
 	s.vclear = true
@@ -78,9 +78,12 @@ Function play_ProcessEvent(event As Object) as boolean
 
 	else if type(event) = "roTimerEvent" then
 		'm.bsp.diagnostics.printdebug("play_plugin Timer Event")
-		if event.GetSourceIdentity() = m.imagetimer.GetIdentity() then
-			m.imagetimer.stop()
-			m.iplayer.StopDisplay()			
+
+		if m.imagetimer <> invalid then 
+			if event.GetSourceIdentity() = m.imagetimer.GetIdentity() then
+				m.imagetimer.stop()
+				m.iplayer.StopDisplay()			
+			endif
 		endif
 
 	else if type(event) = "roVideoEvent" and event.GetInt() = 8 then
@@ -163,7 +166,7 @@ Function ParseplayPluginMsg(origMsg as string, s as object) as boolean
 end Function
 
 
-Sub playimage()
+Sub play_playimage()
 	if type(m.iplayer) <> "roImagePlayer" then m.iplayer = createobject("roImagePlayer")
 	m.iplayer.setdefaultmode(3) 'scale to fill
 	m.iplayer.Displayfile(m.currentfile$)
@@ -171,7 +174,7 @@ Sub playimage()
 
 end Sub
 
-Sub playvideo()
+Sub play_playvideo()
 	if type(m.vplayer) <> "roVideoPlayer" then m.vplayer = createobject("roVideoPlayer")
 	m.vplayer.setport(m.msgport)
 	m.vplayer.Playfile(m.currentfile$)
@@ -179,7 +182,7 @@ Sub playvideo()
 end Sub
 
 
-Sub dlog (error$ as String)
+Sub play_dlog (error$ as String)
 	m.bsp.logging.WriteDiagnosticLogEntry("99plgn", error$)
 	m.bsp.diagnostics.printdebug(error$)
 	print error$
@@ -188,7 +191,7 @@ End Sub
 
 
 
-Function GetFileType(file As String) as String
+Function play_GetFileType(file As String) as String
 	if right(file,3)="MP4" or right(file,3)="WMV" or right(file,3)="MOV" or right(file,3)="VOB" or right(file,3)="MPG" or right(file,2)="TS" then
 		return("VIDEO")
 	else if right(file,3)="PNG" or right(file,3)="JPG" or right(file,3)="BMP" then
@@ -202,22 +205,22 @@ Function GetFileType(file As String) as String
 End Function
 
 
-Sub playfile ()
+Sub play_playfile ()
 
-		if GetFileType(m.currentfile$) = "VIDEO" then
+		if play_GetFileType(m.currentfile$) = "VIDEO" then
 			m.playvideo()
 
-		else if GetFileType(m.currentfile$) = "IMAGE" then
+		else if play_GetFileType(m.currentfile$) = "IMAGE" then
 			m.playimage()
 
-		else if GetFileType(file$) = "UNK" then
+		else if play_GetFileType(file$) = "UNK" then
 			m.dlog("Unknown file type, Not Image or Video")
 		endif
 
 end sub
 
 
-Sub playfolder(folder$ as string)
+Sub play_playfolder(folder$ as string)
 
 	if m.playlist = true then
 		m.currentfile$ = m.mylist.RemoveHead()
@@ -239,7 +242,7 @@ Sub playfolder(folder$ as string)
 End Sub
 
 
-Sub startmytimer()
+Sub play_startmytimer()
 
 	if type(m.imagetimer) <> "roTimer" then m.imagetimer = createobject("roTimer")
 	m.imagetimer.setport(m.msgport)
