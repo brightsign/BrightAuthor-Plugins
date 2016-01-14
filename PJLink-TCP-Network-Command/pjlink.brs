@@ -20,6 +20,7 @@ Function newpjlink(msgPort As Object, userVariables As Object, bsp As Object)
   s.projector_ip$  = ""
   s.projector_port = 4352
   s.debug          = true
+  ' s.dlog           = pjlink_dlog
 
   ' SetParamsFromUserVariables(s, userVariables)
   ' set IP address from user variables
@@ -135,3 +136,11 @@ Function pjlink_SendProjectorMessage(hex_msg as string, s As Object) as boolean
 
   return false
 End Function
+
+' Sub pjlink_dlog (error$ as String)
+'   m.bsp.logging.WriteDiagnosticLogEntry("99plgn", error$)
+'   'm.bsp.diagnostics.printdebug(error$)
+'   print error$
+'   slog = createobject("roSystemLog")
+'   slog.sendline(error$)
+' End Sub
