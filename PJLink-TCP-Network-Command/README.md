@@ -31,17 +31,17 @@ There are two methods of usage for this plugin:
 
 2. Direct messaging with UDP datagrams. Commands must be prefixed with "pjlink!":
 
-		# Named commands from this plugin:
-		# power the projector on and off
+		' Named commands from this plugin:
+		' power the projector on and off
 		pjlink!poweron
 		pjlink!poweroff
 
-		# "Raw" PJLink commands. Format: pjlink!<command>
-		# power the projector on and off:
+		' "Raw" PJLink commands. Format: pjlink!<command>
+		' power the projector on and off:
 		pjlink!POWR 1
-		# power the projector off:
+		' power the projector off:
 		pjlink!POWR 0
-		# switch inputs:
+		' switch inputs:
 		pjlink!INPT 11
 		pjlink!INPT 32
 
