@@ -35,7 +35,7 @@ There are two methods of usage for this plugin:
 		# power the projector on and off
 		pjlink!poweron
 		pjlink!poweroff
-		
+
 		# "Raw" PJLink commands. Format: pjlink!<command>
 		# power the projector on and off:
 		pjlink!POWR 1
@@ -47,6 +47,6 @@ There are two methods of usage for this plugin:
 
 ## Testing
 
-The [PJLink Test software](http://pjlink.jbmia.or.jp/english/dl.html) can be used to confirm commands are being sent/processed not the projector end. (Configure the Network under the Set up menu of the PJLinkTest4PJ exe.)
+The [PJLink Test software](http://pjlink.jbmia.or.jp/english/dl.html) can be used to confirm commands are being sent/processed on the projector end. (Configure the Network under the Set up menu of the PJLinkTest4PJ exe.)
 
-With telnet enabled on you can see messages from the pjlink plugin printed to the screen. Connection details (IP and port) as well as hex-encoded commands are printed.
+With telnet enabled on the BrightSign unit you can see messages from the pjlink plugin printed to the screen. Connection details (IP and port) as well as hex-encoded commands are printed.
