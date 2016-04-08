@@ -8,11 +8,11 @@ Adding the Plugin to your Presentation
 
 Adding PDF Files to your Presentation
 --------------
-<p>Navigate to <strong>File > Presentation Properties > Autorun</strong>. Use the <strong>Add File</strong> button to locate and select each PDF that you wish to print.</p>
+<p>Navigate to <strong>File > Presentation Properties > Autorun</strong>. Use the <strong>Add File</strong> button to locate and select the PDFs that you wish to print.</p>
 
 Configuring the Printer IP Address for the Presentation
 -------------
-<p>The IP address of the network printer is configured with a "printerIP" User Variable. To add this variable, navigate to <strong>File > Presentation Properties > Variables</strong> and click <strong>Add Variable</strong>. Specify the variable <strong>Name</strong> as "printerIP" and use the IP address of the printer as the <strong>Default Value</strong>.</p>
+<p>The IP address of the network printer is configured with a "printerIP" User Variable. To add this variable, navigate to <strong>File > Presentation Properties > Variables</strong> and click <strong>Add Variable</strong>. Specify the variable <strong>Name</strong> as "printerIP" and enter the IP address of the printer as the <strong>Default Value</strong>.</p>
 
 Executing Print Commands
 ----------
