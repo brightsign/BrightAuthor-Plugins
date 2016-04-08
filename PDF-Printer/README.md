@@ -3,7 +3,7 @@ This plugin allows you to print PDF documents to a networked printer using Plugi
 See the <em>printPDF.bpf</em> file in this repository for an example of how to use this plugin in a BrightAuthor presentation. 
 
 Adding the Plugin to your Presentation
--------------
+==========
 <p>To add this plugin to your BrightAuthor presentation, navigate to <strong>File > Presentation Properties > Autorun</strong> and click <strong>Add Script Plugin</strong>. Locate and select the PDF Printer plugin. Specify the plugin <strong>Name</strong> as "PrintPDF".</p>
 
 Adding PDF Files to your Presentation
