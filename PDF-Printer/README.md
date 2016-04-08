@@ -8,12 +8,10 @@ See the <em>printPDF.bpf</em> file in this repository for an example of how to u
 ###Adding PDF Files to your Presentation
 <p>Navigate to <strong>File > Presentation Properties > Autorun</strong>. Use the <strong>Add File</strong> button to locate and select the PDFs that you wish to print.</p>
 
-Configuring the Printer IP Address for the Presentation
--------------
+###Configuring the Printer IP Address for the Presentation
 <p>The IP address of the network printer is configured with a "printerIP" User Variable. To add this variable, navigate to <strong>File > Presentation Properties > Variables</strong> and click <strong>Add Variable</strong>. Specify the variable <strong>Name</strong> as "printerIP" and enter the IP address of the printer as the <strong>Default Value</strong>.</p>
 
-Executing Print Commands
-----------
+###Executing Print Commands
 <p>To trigger a print, attach a Send Plugin Message command to an event or state. The message body of the command must be "printFiles".</p> 
 
 <p>When the plugin receives this command, it will send all PDFs attached to the presentation to the "printerIP" address on TCP port 9100.</p>
