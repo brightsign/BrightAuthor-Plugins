@@ -8,7 +8,7 @@ REM
 
 
 REM
-REM This is the constructor function for out plugin object
+REM This is the constructor function for our plugin object
 REM
 Function printPDF_Initialize(msgPort As Object, userVariables As Object, bsp as Object)
 
