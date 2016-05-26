@@ -23,6 +23,6 @@ Now, you’ll need to add the .zip file and plugin to a presentation for publish
 <li>In the <strong>Presentation Properties</strong> window, navigate from the <strong>Autorun</strong> tab to the <strong>Files</strong> tab.</li>
 <li>Click <strong>Add File</strong>.</li>
 <li>Locate and select the <em>autorun.zip</em> file.</li>
-<li>Publish the presentation as you would normally.<li>
+<li>Publish the presentation as you would normally.</li>
 </ol>
 <p>This plugin works with all publishing methods. When the player receives the presentation, it will perform device setup using the generated setup files, reboot, and begin playing the presentation that was publihsed to it.</p>
