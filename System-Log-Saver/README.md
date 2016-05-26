@@ -9,7 +9,7 @@ Adding the Parser
 <ol>
 <li>Navigate to <strong>File > Presentation properties</strong>.</li> 
 <li>Select the <strong>Data Feeds</strong> tab and click the <strong>Add Data Feed</strong> button.</li>
-<li>Enter a <strong>Feed name<strong> for the Data Feed.</li>
+<li>Enter a <strong>Feed name</strong> for the Data Feed.</li>
 <li>Enter the following URL in the <strong>Feed Specification</strong> field: file:///autoplugins.brs</li>
 <strong>Note</strong>: <em>Since we’re only interested in adding a plugin script to the presentation, having a working Data Feed is not necessary. Therefore, the goal here is simply to have URL that will always be valid, rather than having an actual Data Feed to use or display in the presentation.</em>
 <li>Choose an <strong>Update Interval</strong>. This will determine how often the system log file will be saved to the local storage.</li>
