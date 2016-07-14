@@ -2,7 +2,7 @@
 <p><strong>Note</strong>: <em>Players must be installed with firmware version 6.1.76 or later to use this plugin.</em></p>
 <p><strong>Note</strong>: <em>The presentation can contain one video zone only.</em></p>
 ###Video Format Restrictions
-<p>The plugin must be able to probe the framerate of the video file at runtime. This means that the plugin will only work with certain video formats:</p>
+<p>The plugin must be able to probe the framerate of the video file at runtime. This means that the plugin will only work with the following video formats:</p>
 <ul>
 <li>An MP4 container that defines the framerate in the MP4 encapsulation. Any video codec in the container will be supported as long as this condition is met.</li>
 <li>The MPEG2-TS container</li>
@@ -15,5 +15,5 @@
 <li>Navigate to <strong>File > Presentation Properties > Autorun</strong>.</li>
 <li>Click <strong>Add Script Plugin</strong>.</li>
 <li>Locate and select the <em>matchFrameRate.brs</em> plugin file.</li>
-<li>Specify the plugin Name as "matchFrameRate".</li>
+<li>Specify the plugin <strong>Name</strong> as "matchFrameRate".</li>
 </ol>
