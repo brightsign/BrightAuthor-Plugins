@@ -8,11 +8,12 @@
 <li>The MPEG2-TS container</li>
 <li>The H.265 Elementary Stream (ES) container</li>
 </ul>
+<p>If a video file does not meet any of these criteria, the presentation will play the video as normal without changing the framerate.</p>
 ###Adding the Plugin to your Presentation
 <p>Follow these steps to add the plugin to your BrightAuthor presentation:</p>
 <ol>
 <li>Navigate to <strong>File > Presentation Properties > Autorun</strong>.</li>
 <li>Click <strong>Add Script Plugin</strong>.</li>
-<li>Locate and select the matchFrameRate.brs plugin file.</li>
+<li>Locate and select the <em>matchFrameRate.brs</em> plugin file.</li>
 <li>Specify the plugin Name as "matchFrameRate".</li>
 </ol>
