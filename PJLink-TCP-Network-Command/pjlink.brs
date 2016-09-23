@@ -103,16 +103,16 @@ Function pjlink_ParsePluginMsg(msg As string, s As Object) as boolean
       elseif fields[1] = "poweroff" then
         ' %1POWR 0\r\n
         command = "2531504F575220300D0A"
-      elseif fields[1] = "input-to-dvi"
+      elseif fields[1] = "input-to-dvi" then
         ' %1INPT 31\r\n
         command = "2531494E50542033310D0A"
-      elseif fields[1] = "input-to-hdmi"
+      elseif fields[1] = "input-to-hdmi" then
         ' %1INPT 32\r\n
         command = "2531494E50542033320D0A"
-      elseif fields[1] = "shutter-open"
+      elseif fields[1] = "shutter-open" then
         ' %1AVMT 30\r\n
         command = "253141564D542033300D0A"
-      elseif fields[1] = "shutter-closed"
+      elseif fields[1] = "shutter-closed"  then
         ' %1AVMT 31\r\n
         command = "253141564D542033310D0A"
       else
