@@ -94,10 +94,27 @@ Function pjlink_ParsePluginMsg(msg As string, s As Object) as boolean
       return retval
     else
       ' numFields = 2
+      ' To generate additional pre-baked commands, try this in csharp:
+      '   string cmd = "INPT 31"
+      '   BitConverter.ToString(System.Text.Encoding.ASCII.GetBytes("%1" + cmd + "\r\n")).Replace("-", "")
       if fields[1] = "poweron" then
+        ' %1POWR 1\r\n
         command = "2531504F575220310D0A"
       elseif fields[1] = "poweroff" then
+        ' %1POWR 0\r\n
         command = "2531504F575220300D0A"
+      elseif fields[1] = "input-to-dvi"
+        ' %1INPT 31\r\n
+        command = "2531494E50542033310D0A"
+      elseif fields[1] = "input-to-hdmi"
+        ' %1INPT 32\r\n
+        command = "2531494E50542033320D0A"
+      elseif fields[1] = "shutter-open"
+        ' %1AVMT 30\r\n
+        command = "253141564D542033300D0A"
+      elseif fields[1] = "shutter-closed"
+        ' %1AVMT 31\r\n
+        command = "253141564D542033310D0A"
       else
         ' append %1 and \r\n to the command
         ba = CreateObject("roByteArray")

@@ -27,6 +27,10 @@ There are two methods of usage for this plugin:
 	* **Advanced > Send > Send Plugin Message**. Select the "pjlink" plugin. In the parameters block, enter one of the following:
 	* **poweron**
 	* **poweroff**
+	* **input-to-dvi**
+	* **input-to-hdmi**
+	* **shutter-open**
+	* **shutter-closed**
 	* Any raw PJLink command, such as **INPT 32** to switch to the digital input.
 
 2. Direct messaging with UDP datagrams. Commands must be prefixed with "pjlink!":
@@ -50,3 +54,8 @@ There are two methods of usage for this plugin:
 The [PJLink Test software](http://pjlink.jbmia.or.jp/english/dl.html) can be used to confirm commands are being sent/processed on the projector end. (Configure the Network under the Set up menu of the PJLinkTest4PJ exe.)
 
 With telnet enabled on the BrightSign unit you can see messages from the pjlink plugin printed to the screen. Connection details (IP and port) as well as hex-encoded commands are printed.
+
+To generate the required hex string for additional pre-baked commands, try this in csharp:
+
+    string cmd = "INPT 31"
+    BitConverter.ToString(System.Text.Encoding.ASCII.GetBytes("%1" + cmd + "\r\n")).Replace("-", "")
