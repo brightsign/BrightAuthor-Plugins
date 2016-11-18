@@ -2,7 +2,7 @@ Overview
 ----------
 <p>This plugin allows you to set Chroma (cb/cr) or Luma keying values for a <strong>Video Only</strong> or <strong>Video or Images</strong> zone. Video pixels will appear transparent if their values fall within the specified YCbCr range, allowing background video or graphics to show through. The YCbCr range is set from BrightAuthor using a Plugin Message command. </p>
 
-<p><strong>Note</strong>: <em>Chroma/Luma keying is supported on the following models: 4Kx42, XDx32, and XDx30 (running firmware version 4.8.88 or later).</p>
+<p><strong>Note</strong>: <em>Chroma/Luma keying is supported on the following models: 4Kx42, XDx32, and XDx30 (running firmware version 4.8.88 or later).</em></p>
 
 Adding the Plugin to your Presentation
 -------------
