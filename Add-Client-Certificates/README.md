@@ -1,4 +1,4 @@
-<p>This plugin allows you to register a client certificate with a player. Once registered, the certificate can be used when displaying remote HTML webpages. See <a href="https://gist.github.com/mtigas/952344">this page</a> for a tutorial on generating client certificates.</p>
+<p>This plugin allows you to register a client certificate with a player. The certificate can be either self-signed or signed using a 3rd-party certificate issuer (Versign, DigiCert, etc.).  Once registered, the certificate can be used when displaying remote HTML webpages. See <a href="https://gist.github.com/mtigas/952344">this page</a> for a tutorial on generating client certificates.</p>
 
 <p><strong>Note</strong>: <em>The plugin registers the client certificate immediately as the presentation begins. However, client certificates  do not persist on the player after a reboot, so a presentation with the attached plugin will need to run after each reboot for a client certificate to be usable.</em></p>
 
