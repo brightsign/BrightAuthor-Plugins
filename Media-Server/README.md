@@ -11,7 +11,7 @@ Overview
 
 Adding the Plugin to your Presentation
 -------------
-<p>To add this plugin to your BrightAuthor presentation, navigate to <strong>File > Presentation Properties > Autorun</strong> and click <strong>Add Script Plugin</strong>. Locate and select the 4K Image Playback plugin. Specify the plugin <strong>Name</strong> as "newserver".</p>
+<p>To add this plugin to your BrightAuthor presentation, navigate to <strong>File > Presentation Properties > Autorun</strong> and click <strong>Add Script Plugin</strong>. Locate and select the 4K Image Playback plugin. Specify the plugin <strong>Name</strong> as "server".</p>
 
 Server Parameters
 -------------
@@ -39,8 +39,8 @@ Server Parameters
 </ul>
 
 ###Multicast address
-<p>Edit the following value to change the multicast URL:</p>
-<p><code>display:mode=1&vformat=720p30&vbitrate=8000,encoder:,mem:/display</code></p>
+<p>To set the multicast streaming address, edit the string value of the <code>s.multicast$</code> variable on line 53:</p>
+<p><code>s.multicast$ = "rtp://239.192.0.0:5004/"</code></p>
 
 Streaming URLs
 ------------------
