@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Vars</title>
+</head>
+<body style="background-color: gray; font-size: x-large;  text-align: center;">
+    <script>
+        var mp = new BSMessagePort();
+        mp.onbsmessage = function(msg){
+            console.log(msg);
+            var ta = document.getElementById("textArea");
+            console.log(ta);
+            var textString = "";
+            for(var thing in msg.data){
+                textString = textString + thing + " : " + msg.data[thing] + "\n";
+            }
+            ta.innerText = textString;
+        };
+    </script>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <p id="textArea">Change the variables on the ipad app or local server.</p>
+</body>
+</html>
