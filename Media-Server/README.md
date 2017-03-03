@@ -17,6 +17,7 @@ Adding the Plugin to your Presentation
 <li>Click <strong>Add Script Plugin</strong>.</li>
 <li>Locate and select the Streaming Server plugin.</li>
 <li>Specify the plugin <strong>Name</strong> as "server".</li>
+</ol>
 
 Server Parameters
 -------------
