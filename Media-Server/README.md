@@ -11,7 +11,12 @@ Overview
 
 Adding the Plugin to your Presentation
 -------------
-<p>To add this plugin to your BrightAuthor presentation, navigate to <strong>File > Presentation Properties > Autorun</strong> and click <strong>Add Script Plugin</strong>. Locate and select the 4K Image Playback plugin. Specify the plugin <strong>Name</strong> as "server".</p>
+<p>Follow these steps to add this plugin to your BrightAuthor presentation:</p>
+<ol>
+<li>Navigate to <strong>File > Presentation Properties > Autorun</strong>.</li>
+<li>Click <strong>Add Script Plugin</strong>.</li>
+<li>Locate and select the Streaming Server plugin.</li>
+<li>Specify the plugin <strong>Name</strong> as "server".</li>
 
 Server Parameters
 -------------
