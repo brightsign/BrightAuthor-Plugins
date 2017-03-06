@@ -27,7 +27,7 @@ Server Parameters
 <li><code>s.hdmioutenabled = false</code>: Set to <code>true</code> to stream HDMI input.</li>
 <li><code>s.hdmimultienabled = false</code>: Set to <code>true</code> to stream HDMI input via multicast.</li>
 </ul>
-<p><strong>Note</strong>: If all of the above values are false, then clients will stream video files from the server.</p>
+<p><strong>Note</strong>: <em>If all of the above values are false, then clients will stream video files from the server.</em></p>
 ### Encoder Settings
 <p>To edit the standard HDMI input streaming, change this value:</p>
 <p><code>pipleline$="hdmi:,encoder:vformat=720p60&vbitrate=8000,"</code></p>
@@ -40,7 +40,7 @@ Server Parameters
 
 <p>The following parameters can be changed:</p>
 <ul>
-<li><code>vformat</code>: Can be 720p30 or 1080p60.</li>
+<li><code>vformat</code>: Can be "720p30" or "1080p60".</li>
 <li><code>vbitrate</code>: Can range from 8000 to 15000 (8mbps to 15mbps).</li>
 </ul>
 
@@ -50,10 +50,11 @@ Server Parameters
 
 Streaming URLs
 ------------------
-###Accessing a file stream from a client
+<p>Use the following URLs outline to access streams on a client:</p>
+###Accessing a file stream on a client
 <p><code>rtsp://ServerIpAddress:8090/file:///folder/file.ts</code></p>
 <p><code>rtsp://ServerIpAddress:8090/file:///file.ts</code></p>
-###Accessing an HDMI-input stream from a client
+###Accessing an HDMI-input stream on a client
 <code>rtsp://serverIPAddress:8090/mem:/hdmi/stream.ts</code>
-###Acessing a display stream from a client
+###Acessing a display stream on a client
 <code>rtsp://serverIPAddress:8090/mem:/display/stream.ts</code>
