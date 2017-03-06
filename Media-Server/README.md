@@ -13,6 +13,7 @@ Adding the Plugin to your Presentation
 -------------
 <p>Follow these steps to add this plugin to your BrightAuthor presentation:</p>
 <ol>
+<li><a href="https://brightsign.zendesk.com/knowledge/articles/115000045454/en-us?brand_id=72814">Download the plugin file</a> from GitHub.</li>
 <li>Navigate to <strong>File > Presentation Properties > Autorun</strong>.</li>
 <li>Click <strong>Add Script Plugin</strong>.</li>
 <li>Locate and select the Streaming Server plugin.</li>
