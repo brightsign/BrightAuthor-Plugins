@@ -22,10 +22,10 @@ Adding the Plugin to your Presentation
 
 Server Parameters
 -------------
-<p>When the presentation starts, the plugin will begin serving files automatically from the player. You can alter the default behavior by changing the following parameters in the plugin script:</p>
+<p>When the presentation starts, the plugin will begin streaming the HDMI input (if available). You can alter the default behavior by changing the following parameters in the plugin script:</p>
 <ul>
 <li><code>s.streamdisplayenabled = false</code>: Set to <code>true</code> to stream the presentation display.</li>
-<li><code>s.hdmioutenabled = false</code>: Set to <code>true</code> to stream HDMI input.</li>
+<li><code>s.hdmioutenabled = true</code>: Set to <code>false</code> to disable the default behavior.</li>
 <li><code>s.hdmimultienabled = false</code>: Set to <code>true</code> to stream HDMI input via multicast.</li>
 </ul>
 <p><strong>Note</strong>: <em>If all of the above values are false, then clients will stream video files from the server.</em></p>
