@@ -29,11 +29,11 @@ Function newserver(msgPort As Object, userVariables As Object, bsp as Object)
 	print "newserver"
 	
 	s = {}
-	s.version = 1.22
+	s.version = 1.3
 	
 	'only 1 streaming option below can be set to start automatically
 	s.streamdisplayenabled = false	'stream display output automatically
-	s.hdmioutenabled = false	'stream hdmi output automatically
+	s.hdmioutenabled = true	'stream hdmi output automatically
 	s.hdmimultienabled = false		'stream hdmi output automatically to multicast
 	
 	s.msgPort = msgPort
