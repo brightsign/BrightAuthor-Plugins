@@ -3,7 +3,7 @@ Overview
 <p>This plugin converts an XT, XD, 4K player to a Media Server that can multicast streams or respond to client streaming requests. When the files being streamed are cached (i.e. they aren't being read from the SD card), XDx30, XDx32 players support up to four 19Mbps streams. XT, 4K, and XDx33 players support up to 50 19Mbps streams of the same file or 11 streams (16Mbps average) of different files.</p>
 <p>When file streaming, the Media Server currently only supports the MPEG-2 transport stream format.</p>
 
-###Requirements
+### Requirements
 <ul>
 <li>BrightAuthor version 4.3 or newer</li>
 <li>XTx43, XDx33, 4Kx42, XDx32 for streaming the presentation display or HDMI input</li>
@@ -45,7 +45,7 @@ Server Parameters
 <li><code>vbitrate</code>: Can range from 8000 to 15000 (8mbps to 15mbps).</li>
 </ul>
 
-###Multicast address
+### Multicast address
 <p>To set the multicast streaming address, edit the string value of the <code>s.multicast$</code> variable on line 53:</p>
 <p><code>s.multicast$ = "rtp://239.192.0.0:5004/"</code></p>
 
