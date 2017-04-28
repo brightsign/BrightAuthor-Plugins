@@ -17,7 +17,7 @@ Triggering Content Playback
 <p>The playback portion of the plugin can accept three commands:</p> 
 <ul>
 <li><code>play!filename</code>: Plays the image or video file specified after the "!".</li>
-<li><code>play!foldername</code>: Plays all image/video files contained within the specified file on the SD card.</li>
+<li><code>play!folder!foldername</code>: Plays all image/video files contained within the specified file on the SD card.</li>
 <li><code>play!transition!transition_number</code>: Specifies the transition type between images that are played using this plugin. Use an integer after the second "!" character to specify the desired transition:</li>
 <ul>
 <li>0 - No transition: immediate blit</li>
