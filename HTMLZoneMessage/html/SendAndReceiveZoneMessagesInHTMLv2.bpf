@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BrightAuthor version="6" BrightAuthorVersion="4.6.0.28" type="project">
+<BrightAuthor version="6" BrightAuthorVersion="4.6.0.18" type="project">
   <meta>
-    <name>SendAndReceiveZoneMessagesInHTML</name>
+    <name>SendAndReceiveZoneMessagesInHTMLv2</name>
     <isBackup>False</isBackup>
     <model>LS423</model>
     <videoMode>1920x1080x60p</videoMode>
@@ -10,7 +10,7 @@
     <deviceWebPageDisplay>Standard</deviceWebPageDisplay>
     <alphabetizeVariableNames>True</alphabetizeVariableNames>
     <delayScheduleChangeUntilMediaEndEvent>False</delayScheduleChangeUntilMediaEndEvent>
-    <htmlEnableJavascriptConsole>True</htmlEnableJavascriptConsole>
+    <htmlEnableJavascriptConsole>False</htmlEnableJavascriptConsole>
     <backgroundScreenColor a="255" r="0" g="0" b="0" />
     <forceResolution>True</forceResolution>
     <tenBitColorEnabled>False</tenBitColorEnabled>
@@ -26,19 +26,15 @@
     <BP900AConfigureAutomatically>True</BP900AConfigureAutomatically>
     <BP900BConfigureAutomatically>True</BP900BConfigureAutomatically>
     <BP900CConfigureAutomatically>True</BP900CConfigureAutomatically>
-    <BP900DConfigureAutomatically>True</BP900DConfigureAutomatically>
     <BP200AConfigureAutomatically>True</BP200AConfigureAutomatically>
     <BP200BConfigureAutomatically>True</BP200BConfigureAutomatically>
     <BP200CConfigureAutomatically>True</BP200CConfigureAutomatically>
-    <BP200DConfigureAutomatically>True</BP200DConfigureAutomatically>
     <BP900AConfiguration>0</BP900AConfiguration>
     <BP900BConfiguration>0</BP900BConfiguration>
     <BP900CConfiguration>0</BP900CConfiguration>
-    <BP900DConfiguration>0</BP900DConfiguration>
     <BP200AConfiguration>0</BP200AConfiguration>
     <BP200BConfiguration>0</BP200BConfiguration>
     <BP200CConfiguration>0</BP200CConfiguration>
-    <BP200DConfiguration>0</BP200DConfiguration>
     <SerialPortConfiguration>
       <port>0</port>
       <baudRate>115200</baudRate>
@@ -169,14 +165,6 @@
     <userDefinedEvents>
     </userDefinedEvents>
     <userVariables>
-      <userVariable>
-        <name>zoneMessage</name>
-        <defaultValue>zoneMessage</defaultValue>
-        <networked>False</networked>
-        <liveDataFeedName />
-        <systemVariable />
-        <access>Private</access>
-      </userVariable>
     </userVariables>
     <liveDataFeeds>
     </liveDataFeeds>
@@ -190,7 +178,7 @@
     </parserPlugins>
     <htmlSites>
       <localHTMLSite>
-        <name>HTMLSite</name>
+        <name>html</name>
         <queryString>
           <parameterValue>
             <parameterValueItemText>
@@ -222,7 +210,7 @@
       <XModemFiles>Y:\Projects\BrightSign\HTML Zone Messages</XModemFiles>
       <ImportCommandFiles>Y:\Projects\BrightSign\HTML Zone Messages</ImportCommandFiles>
     </DirectoryLocations>
-    <graphicsZOrder>Front</graphicsZOrder>
+    <graphicsZOrder>Back</graphicsZOrder>
     <isMosaic>False</isMosaic>
   </meta>
   <zones>
@@ -230,8 +218,8 @@
       <name>Video or Images</name>
       <x>0</x>
       <y>0</y>
-      <width>1430</width>
-      <height>1079</height>
+      <width>1536</width>
+      <height>1080</height>
       <type>VideoOrImages</type>
       <id>1</id>
       <zoomValue>1</zoomValue>
@@ -270,40 +258,29 @@
       </zoneSpecificParameters>
       <playlist>
         <name>Playlist 0</name>
-        <type>interactive</type>
+        <type>non-interactive</type>
+        <html5Item>
+          <name>html</name>
+          <htmlSiteName>html</htmlSiteName>
+          <enableExternalData>True</enableExternalData>
+          <enableMouseEvents>True</enableMouseEvents>
+          <displayCursor>True</displayCursor>
+          <hwzOn>False</hwzOn>
+          <useUserStylesheet>False</useUserStylesheet>
+          <userStylesheet />
+          <timeOnScreen>0</timeOnScreen>
+        </html5Item>
         <states>
-          <initialState>HTMLSite</initialState>
-          <state>
-            <name>HTMLSite</name>
-            <x>180</x>
-            <y>72</y>
-            <width>114</width>
-            <height>97</height>
-            <id>0</id>
-            <html5Item>
-              <name>HTMLSite</name>
-              <htmlSiteName>HTMLSite</htmlSiteName>
-              <enableExternalData>True</enableExternalData>
-              <enableMouseEvents>True</enableMouseEvents>
-              <displayCursor>True</displayCursor>
-              <hwzOn>True</hwzOn>
-              <useUserStylesheet>False</useUserStylesheet>
-              <userStylesheet />
-              <timeOnScreen>0</timeOnScreen>
-            </html5Item>
-            <brightSignExitCommands>
-            </brightSignExitCommands>
-            <notes />
-          </state>
+          <initialState />
         </states>
       </playlist>
     </zone>
     <zone>
-      <name>New Zone</name>
-      <x>1422</x>
+      <name>Images</name>
+      <x>1536</x>
       <y>0</y>
-      <width>498</width>
-      <height>265</height>
+      <width>384</width>
+      <height>1080</height>
       <type>Images</type>
       <id>2</id>
       <zoomValue>1</zoomValue>
@@ -319,10 +296,10 @@
           <initialState>concept-car-ford-mustangs-backgrounds.jpg</initialState>
           <state>
             <name>concept-car-ford-mustangs-backgrounds.jpg</name>
-            <x>118</x>
-            <y>114</y>
-            <width>114</width>
-            <height>97</height>
+            <x>107</x>
+            <y>15</y>
+            <width>116</width>
+            <height>99</height>
             <id>0</id>
             <imageItem>
               <file name="concept-car-ford-mustangs-backgrounds.jpg" path="Y:\Documents\Files From Joshy\Media\concept-car-ford-mustangs-backgrounds.jpg" />
@@ -338,8 +315,8 @@
           </state>
           <state>
             <name>Detroit-Car-Insurance-Information.bmp</name>
-            <x>291</x>
-            <y>115</y>
+            <x>106</x>
+            <y>193</y>
             <width>114</width>
             <height>97</height>
             <id>1</id>
@@ -358,16 +335,30 @@
           <transition>
             <sourceMediaState>concept-car-ford-mustangs-backgrounds.jpg</sourceMediaState>
             <userEvent>
+              <name>zoneMessage</name>
+              <parameters>
+                <parameter>ford</parameter>
+              </parameters>
+            </userEvent>
+            <targetMediaState>Detroit-Car-Insurance-Information.bmp</targetMediaState>
+            <displayMode>displayConnectingLine</displayMode>
+            <labelLocation>bottom</labelLocation>
+            <assignInputToUserVariable>False</assignInputToUserVariable>
+            <assignWildcardToUserVariable>False</assignWildcardToUserVariable>
+          </transition>
+          <transition>
+            <sourceMediaState>concept-car-ford-mustangs-backgrounds.jpg</sourceMediaState>
+            <userEvent>
               <name>rectangularTouchEvent</name>
               <parameters>
                 <x>0</x>
                 <y>0</y>
-                <width>497</width>
-                <height>264</height>
+                <width>383</width>
+                <height>1079</height>
               </parameters>
             </userEvent>
             <targetMediaState>Detroit-Car-Insurance-Information.bmp</targetMediaState>
-            <displayMode>displayLabel</displayMode>
+            <displayMode>displayConnectingLine</displayMode>
             <labelLocation>bottom</labelLocation>
             <brightSignCmd>
               <name>SendZoneMessage</name>
@@ -391,14 +382,14 @@
             <assignWildcardToUserVariable>False</assignWildcardToUserVariable>
           </transition>
           <transition>
-            <sourceMediaState>concept-car-ford-mustangs-backgrounds.jpg</sourceMediaState>
+            <sourceMediaState>Detroit-Car-Insurance-Information.bmp</sourceMediaState>
             <userEvent>
               <name>zoneMessage</name>
               <parameters>
-                <parameter>ford</parameter>
+                <parameter>mustang</parameter>
               </parameters>
             </userEvent>
-            <targetMediaState>Detroit-Car-Insurance-Information.bmp</targetMediaState>
+            <targetMediaState>concept-car-ford-mustangs-backgrounds.jpg</targetMediaState>
             <displayMode>displayLabel</displayMode>
             <labelLocation>bottom</labelLocation>
             <assignInputToUserVariable>False</assignInputToUserVariable>
@@ -411,8 +402,8 @@
               <parameters>
                 <x>0</x>
                 <y>0</y>
-                <width>497</width>
-                <height>264</height>
+                <width>383</width>
+                <height>1079</height>
               </parameters>
             </userEvent>
             <targetMediaState>concept-car-ford-mustangs-backgrounds.jpg</targetMediaState>
@@ -439,37 +430,8 @@
             <assignInputToUserVariable>False</assignInputToUserVariable>
             <assignWildcardToUserVariable>False</assignWildcardToUserVariable>
           </transition>
-          <transition>
-            <sourceMediaState>Detroit-Car-Insurance-Information.bmp</sourceMediaState>
-            <userEvent>
-              <name>zoneMessage</name>
-              <parameters>
-                <parameter>mustang</parameter>
-              </parameters>
-            </userEvent>
-            <targetMediaState>concept-car-ford-mustangs-backgrounds.jpg</targetMediaState>
-            <displayMode>displayLabel</displayMode>
-            <labelLocation>bottom</labelLocation>
-            <assignInputToUserVariable>False</assignInputToUserVariable>
-            <assignWildcardToUserVariable>False</assignWildcardToUserVariable>
-          </transition>
         </states>
       </playlist>
-    </zone>
-    <zone>
-      <name>New Zone</name>
-      <x>1422</x>
-      <y>266</y>
-      <width>498</width>
-      <height>540</height>
-      <type>Images</type>
-      <id>3</id>
-      <zoomValue>1</zoomValue>
-      <horizontalOffset>0</horizontalOffset>
-      <verticalOffset>0</verticalOffset>
-      <zoneSpecificParameters>
-        <imageMode>Scale to Fit</imageMode>
-      </zoneSpecificParameters>
     </zone>
   </zones>
 </BrightAuthor>

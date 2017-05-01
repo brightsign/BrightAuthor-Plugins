@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zone Messages</title>
+</head>
+<body>
+<p id="text" style="color: white">Mustang</p>
+<button onclick='bsMessagePort.PostBSMessage({button:"ford"})'>Ford</button>
+<button onclick='bsMessagePort.PostBSMessage({button:"mustang"})'>Mustang</button>
+
+<script>
+    bsMessagePort = new BSMessagePort();
+    bsMessagePort.onbsmessage = function(msg){
+        console.log(msg);
+        document.getElementById("text").innerHTML = msg.data.zonemessage;
+    };
+    bsMessagePort.PostBSMessage({htmlready:true});
+
+</script>
+</body>
+</html>
