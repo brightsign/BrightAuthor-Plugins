@@ -67,23 +67,27 @@ Function custom_ProcessEvent(event As Object) as boolean
 
 	else if type(event) = "roDatagramEvent" then
 			msg$ = event
-			if (left(msg$,4) = "seek") then
+			if (left(msg$,5) = "seek!") then
 				retval = ParsecustomPluginMsg(msg$, m)
 			end if
 
-			if (left(msg$,6) = "ticker") then
+			if (left(msg$,7) = "ticker!") then
 				retval = ParsecustomPluginMsg(msg$, m)
 			end if
 
 
-			if (left(msg$,6) = "rotate") then
+			if (left(msg$,7) = "rotate!") then
 				retval = ParsecustomPluginMsg(msg$, m)
 			end if
 	
-			if (left(msg$,4) = "fade") then
+			if (left(msg$,5) = "fade!") then
 				retval = ParsecustomPluginMsg(msg$, m)
 			end if
 			
+			if (left(msg$,5) = "speed!") then
+				retval = ParsecustomPluginMsg(msg$, m)
+			end if
+
 	else if type(event) = "roVideoEvent" then
 		
 			eventData = event.GetInt()
@@ -123,11 +127,11 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 	o = CreateObject("roRegex", "^fade", "i")
 	fade_match=o.IsMatch(msg)
 
-	'verify if it's a fade message
+	'verify if it's a ticker message
 	w = CreateObject("roRegex", "^ticker", "i")
 	ticker_match=w.IsMatch(msg)
 	
-	'verify if it's a fade message
+	'verify if it's a speed message
 	n = CreateObject("roRegex", "^speed", "i")
 	speed_match=n.IsMatch(msg)	
 	
@@ -498,7 +502,6 @@ sub dlog(message$ as string)
 	'if m.debug print (message$)
 
 end sub
-
 Sub ticker_newscroll()
 		twParams = CreateObject("roAssociativeArray")
 		twParams.LineCount = 1
@@ -507,4 +510,3 @@ Sub ticker_newscroll()
 		twParams.Alignment = 0
 		m.mytw=CreateObject("roTextWidget",m.mytickerbox,1,2,twparams)		
 End sub
-
