@@ -8,7 +8,7 @@ Rotate
 ------
 <p>To trigger a rotation, the Plugin Message or UDP command must be formatted as follows:</p>
 <code>rotate![zone_name]![rotate_type]</code>
-
+<br>
 <p><strong>zone_name</strong>: The name of the video zone you wish to rotate.</p>
 <p><strong>rotate_type</strong>: The type of video rotation to be performed. The following parameters can be used:</p>
 <ul>
@@ -20,9 +20,8 @@ Rotate
 <li>m180: Mirrored 180 degree clockwise rotation</li>
 <li>m270: Mirrored 270 degree clockwise rotation</li>
 </ul>
-<p><strong>Example:</strong>: The following command rotates a zone named "main" by ninety degrees.</p>
+<p><strong>Example</strong>: The following command rotates a zone named "main" by ninety degrees.</p>
 <code>rotate!main!r90</code>
-
 
 Seek
 ------
@@ -32,13 +31,39 @@ Seek
 <p><strong>zone_name</strong>: The name of the video zone containing the video you wish to perform seek on.</p>
 <p><strong>video_position</strong>: The position (in milliseconds) to seek to in the current video. The seek will not occur if the position is past the end of the video file.</p>
 
-<P><strong>Example</strong>: The following command seeks to 2500 milliseconds in the current video file in the "main" zone:</p>
+<p><strong>Example</strong>: The following command seeks to 2500 milliseconds in the current video file in the "main" zone:</p>
 <code>seek!main!2500</code>
+
+Speed
+--------
+<p>Use one of the following Plugin Message or UDP commands to alter playback speed:</p>
+<code>speed!playback_speed</code>
+<code>speed!zone_name!playback_speed</code>
+<br>
+<p>The <code>playback_speed</code> value can be used to do the following:</p>
+<ul>
+  <li>Play forward in slow motion: 0 < playback_speed < 1.0</li>
+  <li>Play forward at normal speed: playback_speed = 1.0</li>
+  <li>Play forward in fast motion: 1.0 < playback_speed</li>
+  <li>Play backward in slow motion: -1.0 < playback_speed < 0</li>
+  <li>Play backward at normal speed: playback_speed = -1.0</li>
+  <li>Play backward in fast motion: -1.0 > playback_speed</li>
+</ul>
+<p>For example, to play video at half speed, set the <code>playback_speed</code> to .5; to rewind the video at twice normal speed, set the <code>playback_speed</code> to -2.0.</p>
+
+fade
+------
+<p>Use one of the following Plugin Message or UDP commands to set the video to fade out:</p>
+<code>fade!fade_duration</code>
+<code>fade!zone_name!fade_duration</code>
+<br>
+<p>The <code>fade_duration</code> is specified as an integer value of milliseconds.</p>
 
 Scrolling Ticker
 ---------------
 <p>Use the following Plugin Message or UDP command to initialize a Ticker zone with scrolling text:</p>
 <code>ticker!scroll!x!y!w!h</code> 
+<br>
 <p>The <code>x</code> and <code>y</code> parameters specify the coordinates of the top left corner of the zone, while the <code>w</code> and <code>h</code> parameters represent the width and height of the zone. Note that the Ticker zone is created by the plugin; you do not need to use the <strong>Edit > Layout</strong> tab in BrightAuthor.</p>
 
 Once the Ticker zone is initialized, you can use the following commands to configure and display the zone:
