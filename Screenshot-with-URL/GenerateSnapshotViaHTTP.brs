@@ -2,8 +2,6 @@
 
 'Generate snapshot when hitting a URL
 
-'http://192.168.1.64:8081/mySnapshot
-
 'http://192.168.1.78:8081/mySnap
 
 Function Custom_Initialize(msgPort As Object, userVariables As Object, bsp as Object)
