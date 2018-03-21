@@ -29,15 +29,17 @@ Function SendTCPBytes_ProcessEvent(event As Object)
                     pluginMessage$ = event["PluginMessage"]
                     print "Received pluginMessage ";pluginMessage$
                     tcpPacket = ParseJson(pluginMessage$)
-                    tcpIp$ = tcpPacket.ip;
-                    tcpPort$ = tcpPacket.port;
-                    tcpMessage$ = tcpPacket.message;
+                    tcpIp$ = tcpPacket.ip
+                    tcpPort$ = tcpPacket.port
+                    tcpPort# = val(tcpPort$)
+                    tcpPort% = cint(tcpPort#)
+                    tcpMessage$ = tcpPacket.message
                     socket = CreateObject("roTCPStream")
                     if socket = invalid then
                         print "could not create TCP stream object"
                         return false
                     endif
-                    if socket.ConnectTo(tcpIp$, tcpPort) then
+                    if socket.ConnectTo(tcpIp$, tcpPort%) then
                         bytes = CreateObject("roByteArray")
                         sleep(500)
                         bytes.FromHexString(tcpMessage$)
