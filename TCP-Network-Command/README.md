@@ -22,3 +22,14 @@ SendTCPBytes Plugin
 {"ip":"10.0.0.42", "port":"4661", "message": "0614000400341100005D"}
 ```
 (will turn on some ViewSonic projectors - expected message content may vary)
+
+SendTCPString Plugin
+-------------------
+<p>This plugin sends a ASCII-formatted TCP message to a custom IP address and port.</p>
+<p>Message, IP address, and port are all supplied via plugin message. The plugin message is expected to be in JSON format.</p>
+
+### For example:
+```json
+{"ip":"10.0.0.42", "port":"2123", "message": "hello world"}
+```
+(sends the message "hello world" to a device:service at 10.0.0.42:2123)
