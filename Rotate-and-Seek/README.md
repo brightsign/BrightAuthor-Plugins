@@ -29,7 +29,10 @@ Seek
 <code>seek![zone_name]![video_position]</code>
 
 <p><strong>zone_name</strong>: The name of the video zone containing the video you wish to perform seek on.</p>
-<p><strong>video_position</strong>: The position (in milliseconds) to seek to in the current video. The seek will not occur if the position is past the end of the video file.</p>
+<p><strong>video_position</strong>: The position (in milliseconds) to seek to in the current video. The seek will not occur if the position is past the end of the video file. The position can also include a leading + or - character to indicate that the position is an offset from the current playback postion. For example:</p>
+<code>seek![zone_name]!+5000</code>
+
+<p>would seek 5 seconds forward in the current video.
 
 <p><strong>Example</strong>: The following command seeks to 2500 milliseconds in the current video file in the "main" zone:</p>
 <code>seek!main!2500</code>
