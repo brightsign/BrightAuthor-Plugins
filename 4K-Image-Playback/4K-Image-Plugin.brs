@@ -128,17 +128,13 @@ Function HandlePluginMessageEvent(pluginMessage$ as String) as boolean
 		'REM Look for new root folder in variable
 		if m.userVariables.DoesExist("ImageFolder") then
 			m.ImageFolder$ = m.userVariables.ImageFolder.currentvalue$
-			print "** User has set ImageFolder"
 		else 
 			m.ImageFolder$ = "SD:/4KImages"
-			print "** Using default image folder path *"
 		end if
 		print "Image folder is " m.ImageFolder$
 		
-		
 		'Make sense to ClearImagePlane here?
 		m.bsp.sign.zoneshsm[0].ClearImagePlane()
-		print " Checking for media files "
 		retval = m.CheckCardForMediaFiles()
 		
 	else if pluginMessage$ = "BAPlay" then
@@ -162,8 +158,6 @@ Function CheckCardForMediaFiles() As Boolean
 	m.count = 0
 	m.positionPN = 0
 	m.sizePN = 0
-	print ">> ImageFolder is " m.ImageFolder$ " <<"
-
 	m.listPN = ListDir(m.ImageFolder$)
 	
 	'add files to list
@@ -171,9 +165,9 @@ Function CheckCardForMediaFiles() As Boolean
 	for each file in m.listPN 
 		
 		if ucase(right(file,3)) = "JPG" or ucase(right(file,3)) = "BMP" or ucase(right(file,3)) = "PNG" then 
-			m.FileListPN[m.count] = ucase(file)
+			m.FileListPN[m.count] = file
 			m.FileTypePN[m.count] = "I"
-			print "Found: file " stri(m.count) " named: " file
+			print "Found image file: " file
 			m.count = m.count + 1
 		end if
 	next
@@ -217,7 +211,7 @@ Function SortFilesABC(FileList as Object, FileType as Object, list as Object) As
 	retval = false
 	print "About to play files from storage media"
 	retval = m.PlayfilesFromStorageMedia(m.FileListPN, m.FileTypePN, m.listPN, m.sizePN)
-	print " m.FileList" + Chr(13) + Chr(10) m.FileListPN
+	'print " m.FileList" + Chr(13) + Chr(10) m.FileListPN
 	
 End Function
 
@@ -226,31 +220,23 @@ End Function
 Function PlayfilesFromStorageMedia(FileList as Object, FileType as Object, list as Object, size as Integer) As Boolean
 
 	ok = false
-
 	if m.sizePN >= 0 then
 		
 		if m.IndexTracker = -1  then	
-		
 			m.IndexTracker = 0
-			
 		else if m.IndexTracker = m.sizePN
-		
 			m.PluginSendMessage("BAPlay")
 			m.ImageTimer.Stop()
 			m.bsp.sign.zoneshsm[0].videoplayer.StopClear()
 			m.IndexTracker = -1
-			
 		end if
-		
 		
 		if m.IndexTracker <= m.sizePN then			
 					
 			if m.FileTypePN[m.IndexTracker] = "I" then
 				imgFileName=m.ImageFolder$ + "/"+ m.FileListPN[m.IndexTracker]
 				print "Playing static image " imgFileName
-				'ok = m.bsp.sign.zoneshsm[0].videoplayer.PlayStaticImage(m.ImageFolder$+m.FileListPN[m.IndexTracker])
 				ok = m.bsp.sign.zoneshsm[0].videoplayer.PlayStaticImage(imgFileName)
-
 				m.StartImageTimer()
 			end if					
 		end if
