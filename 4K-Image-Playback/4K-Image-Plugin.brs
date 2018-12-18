@@ -5,7 +5,7 @@
 
 Function PlayImagesFromFolder_Initialize(msgPort As Object, userVariables As Object, bsp as Object)
 
-    print "PlayImagesFromFolder_Initialize - entry"
+	print "PlayImagesFromFolder_Initialize - entry"
     
 	PlayImagesFromFolder = newPlayImagesFromFolder(msgPort, userVariables, bsp)
 	
@@ -29,7 +29,6 @@ Function newPlayImagesFromFolder(msgPort As Object, userVariables As Object, bsp
 	s.GoTimer=CreateObject("roTimer")
 	s.ImageTimer.SetPort(s.msgport)
 	s.GoTimer.SetPort(s.msgport)
-
 
 	s.timeOnScreen = 6000
 	s.CheckCardForMediaFiles = CheckCardForMediaFiles
@@ -57,11 +56,10 @@ End Function
 Function PlayImagesFromFolder_ProcessEvent(event As Object) as boolean
 
 	retval = false
-    print "PlayImagesFromFolder_ProcessEvent - entry"
-    print "type of m is ";type(m)
-    print "type of event is ";type(event)
+	print "PlayImagesFromFolder_ProcessEvent - entry"
+	'print "type of m is ";type(m)
+	'print "type of event is ";type(event)
 
-	
 	if type(event) = "roVideoEvent" then
 			VideoPlayerEventReceived = event.GetInt()
 			
@@ -126,16 +124,26 @@ Function HandlePluginMessageEvent(pluginMessage$ as String) as boolean
 	
 	if pluginMessage$ = "FolderPlay" then
 		
-		print " ||||| FolderPlay pluginMessage$ event received ||||| " pluginMessage$
+		print " ||||| FolderPlay pluginMessage$ event received ||||| "
+		'REM Look for new root folder in variable
+		if m.userVariables.DoesExist("ImageFolder") then
+			m.ImageFolder$ = m.userVariables.ImageFolder.currentvalue$
+			print "** User has set ImageFolder"
+		else 
+			m.ImageFolder$ = "SD:/4KImages"
+			print "** Using default image folder path *"
+		end if
+		print "Image folder is " m.ImageFolder$
+		
 		
 		'Make sense to ClearImagePlane here?
 		m.bsp.sign.zoneshsm[0].ClearImagePlane()
+		print " Checking for media files "
 		retval = m.CheckCardForMediaFiles()
 		
 	else if pluginMessage$ = "BAPlay" then
 	
-		print " ||||| BAPlay pluginMessage$ event received ||||| " pluginMessage$
-	
+		print " ||||| BAPlay pluginMessage$ event received ||||| "
 		return retval
 	
 	end if
@@ -146,28 +154,28 @@ End Function
 
 
 
-
 Function CheckCardForMediaFiles() As Boolean
 	
 	m.FileListPN = CreateObject("roArray", 1, true)
 	m.FileTypePN = CreateObject("roArray", 1, true)
-	
 	retval = false
 	m.count = 0
 	m.positionPN = 0
 	m.sizePN = 0
-	m.listPN = ListDir("SD:/4KImages")
+	print ">> ImageFolder is " m.ImageFolder$ " <<"
+
+	m.listPN = ListDir(m.ImageFolder$)
 	
-		'add files to list
+	'add files to list
 	'------------------
 	for each file in m.listPN 
 		
 		if ucase(right(file,3)) = "JPG" or ucase(right(file,3)) = "BMP" or ucase(right(file,3)) = "PNG" then 
 			m.FileListPN[m.count] = ucase(file)
 			m.FileTypePN[m.count] = "I"
+			print "Found: file " stri(m.count) " named: " file
 			m.count = m.count + 1
 		end if
-		
 	next
 	
 	m.sizePN = m.count
@@ -176,46 +184,40 @@ Function CheckCardForMediaFiles() As Boolean
 		print "No Files Found"
 		sleep(10000)
 	else
-	
 		print stri(m.count) + " Files found on Media Storage "
 		'print" m.list" m.list
-	
 	end if
 	
 	retval = m.SortFilesABC(m.FileListPN, m.FileTypePN, m.listPN)
-	
 	return retval
 
 End Function
 
 
 
-
 Function SortFilesABC(FileList as Object, FileType as Object, list as Object) As Boolean
 
-	
+	print "Sorting file listing"
 	if m.sizePN > 0 then
-        for i% = m.sizePN - 1 to 1 step -1
-            for j% = 0 to i% - 1
-                if m.FileListPN[j%] > m.FileListPN[j%+1] then
-                    tmp = m.FileListPN[j%]
-                    m.FileListPN[j%] = m.FileListPN[j%+1]
-                    m.FileListPN[j%+1] = tmp
-                    
-                    ttmp$ = m.FileTypePN[j%]
-                    m.FileTypePN[j%]=m.FileTypePN[j%+1]
-                    m.FileTypePN[j%+1]=ttmp$
-                    
-                end if
-            next
-        next
-    end if
+		for i% = m.sizePN - 1 to 1 step -1
+			for j% = 0 to i% - 1
+				if m.FileListPN[j%] > m.FileListPN[j%+1] then
+					tmp = m.FileListPN[j%]
+					m.FileListPN[j%] = m.FileListPN[j%+1]
+					m.FileListPN[j%+1] = tmp
+			    
+					ttmp$ = m.FileTypePN[j%]
+					m.FileTypePN[j%]=m.FileTypePN[j%+1]
+					m.FileTypePN[j%+1]=ttmp$
+				end if
+			next
+		next
+	end if
 	
 	retval = false
-	
+	print "About to play files from storage media"
 	retval = m.PlayfilesFromStorageMedia(m.FileListPN, m.FileTypePN, m.listPN, m.sizePN)
-	
-	print" m.FileList" + Chr(13) + Chr(10) m.FileListPN
+	print " m.FileList" + Chr(13) + Chr(10) m.FileListPN
 	
 End Function
 
@@ -244,12 +246,13 @@ Function PlayfilesFromStorageMedia(FileList as Object, FileType as Object, list 
 		if m.IndexTracker <= m.sizePN then			
 					
 			if m.FileTypePN[m.IndexTracker] = "I" then
+				imgFileName=m.ImageFolder$ + "/"+ m.FileListPN[m.IndexTracker]
+				print "Playing static image " imgFileName
+				'ok = m.bsp.sign.zoneshsm[0].videoplayer.PlayStaticImage(m.ImageFolder$+m.FileListPN[m.IndexTracker])
+				ok = m.bsp.sign.zoneshsm[0].videoplayer.PlayStaticImage(imgFileName)
 
-					ok = m.bsp.sign.zoneshsm[0].videoplayer.PlayStaticImage("SD:/4KImages/"+m.FileListPN[m.IndexTracker])
-					
-					m.StartImageTimer()
-
-				end if					
+				m.StartImageTimer()
+			end if					
 		end if
 		
 	end if
