@@ -160,12 +160,14 @@ Function CheckCardForMediaFiles() As Boolean
 	'add files to list
 	'------------------
 	for each file in m.listPN 
-		
-		if ucase(right(file,3)) = "JPG" or ucase(right(file,3)) = "BMP" or ucase(right(file,3)) = "PNG" then 
-			m.FileListPN[m.count] = file
-			m.FileTypePN[m.count] = "I"
-			print "Found image file: " file
-			m.count = m.count + 1
+		' Skip Mac dotfiles
+		if left(file,1) <> "." then
+			if ucase(right(file,3)) = "JPG" or ucase(right(file,3)) = "BMP" or ucase(right(file,3)) = "PNG" then 
+				m.FileListPN[m.count] = file
+				m.FileTypePN[m.count] = "I"
+				print "Found image file: " file
+				m.count = m.count + 1
+			end if
 		end if
 	next
 	
