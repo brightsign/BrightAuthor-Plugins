@@ -117,7 +117,7 @@ Function HandlePluginMessageEvent(pluginMessage$ as String) as boolean
 
 	retval = false
 	
-	if pluginMessage$ = "FolderPlay" then
+	if pluginMessage$ = "FolderPlay" or pluginMessage$ = "Play" then
 		
 		print " ||||| FolderPlay pluginMessage$ event received ||||| "
 		'REM Look for new root folder in variable
@@ -225,6 +225,7 @@ Function PlayfilesFromStorageMedia(FileList as Object, FileType as Object, list 
 			m.IndexTracker = 0
 		else if m.IndexTracker = m.sizePN
 			m.PluginSendMessage("BAPlay")
+			m.PluginSendMessage("End")
 			m.ImageTimer.Stop()
 			m.bsp.sign.zoneshsm[0].videoplayer.StopClear()
 			m.IndexTracker = -1
