@@ -39,14 +39,9 @@ Function newPlayImagesFromFolder(msgPort As Object, userVariables As Object, bsp
 	s.ResetIndexTracker = false
 	s.StartImageTimer = StartImageTimer
 	s.ImageTimerTimeout = Val(s.uservariables.ImageTimeOUTinSeconds.currentvalue$)
-	s.StartTimer = StartTimer
 	s.PluginSendMessage = PluginSendMessage
 	s.HandlePluginMessageEvent = HandlePluginMessageEvent
-	
-
 	s.objectName = "PlayImagesFromFolder_object"
-	
-	's.StartTimer()
 	
 	return s
 End Function
@@ -132,6 +127,8 @@ Function HandlePluginMessageEvent(pluginMessage$ as String) as boolean
 			m.ImageFolder$ = "SD:/4KImages"
 		end if
 		print "Image folder is " m.ImageFolder$
+		m.ImageTimerTimeout = Val(m.uservariables.ImageTimeOUTinSeconds.currentvalue$)
+
 		
 		'Make sense to ClearImagePlane here?
 		m.bsp.sign.zoneshsm[0].ClearImagePlane()
@@ -257,15 +254,6 @@ Function StartImageTimer()
 
 End Function
 
-
-Function StartTimer()
-	
-	StartTimeout = m.sTime.GetLocalDateTime()
-	StartTimeout.AddSeconds(5)
-	m.GoTimer.SetDateTime(StartTimeout)
-	m.GoTimer.Start()
-
-End Function
 
 
 Function PluginSendMessage(Pmessage$ As String)
