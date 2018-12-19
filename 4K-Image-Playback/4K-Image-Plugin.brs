@@ -6,9 +6,7 @@
 Function PlayImagesFromFolder_Initialize(msgPort As Object, userVariables As Object, bsp as Object)
 
 	print "PlayImagesFromFolder_Initialize - entry"
-    
 	PlayImagesFromFolder = newPlayImagesFromFolder(msgPort, userVariables, bsp)
-	
 	return PlayImagesFromFolder
 
 End Function
@@ -30,7 +28,6 @@ Function newPlayImagesFromFolder(msgPort As Object, userVariables As Object, bsp
 	s.ImageTimer.SetPort(s.msgport)
 	s.GoTimer.SetPort(s.msgport)
 
-	s.timeOnScreen = 6000
 	s.CheckCardForMediaFiles = CheckCardForMediaFiles
 	s.FileListMain = invalid
 	s.SortFilesABC = SortFilesABC
@@ -90,17 +87,13 @@ Function PlayImagesFromFolder_ProcessEvent(event As Object) as boolean
 			if event["EventType"] = "EVENT_PLUGIN_MESSAGE" then
 				if event["PluginName"] = "PlayImagesFromFolder" then
 					pluginMessage$ = event["PluginMessage"]
-							
 					retval = m.HandlePluginMessageEvent(pluginMessage$)
-					
 				end if
 			
 			else if event["EventType"] = "SEND_PLUGIN_MESSAGE" then
 				if event["PluginName"] = "PlayImagesFromFolder" then
 					pluginMessage$ = event["PluginMessage"]
-				
 					retval = m.HandlePluginMessageEvent(pluginMessage$)
-					
 				end if
 				
 			end if
@@ -120,25 +113,29 @@ Function HandlePluginMessageEvent(pluginMessage$ as String) as boolean
 	if pluginMessage$ = "FolderPlay" or pluginMessage$ = "Play" then
 		
 		print " ||||| FolderPlay pluginMessage$ event received ||||| "
+		' Re-start the playlist upon entry
+		m.IndexTracker = -1
 		'REM Look for new root folder in variable
 		if m.userVariables.DoesExist("ImageFolder") then
 			m.ImageFolder$ = m.userVariables.ImageFolder.currentvalue$
 		else 
+			' Retain this default for compatibility
 			m.ImageFolder$ = "SD:/4KImages"
 		end if
 		print "Image folder is " m.ImageFolder$
 		m.ImageTimerTimeout = Val(m.uservariables.ImageTimeOUTinSeconds.currentvalue$)
 
-		
 		'Make sense to ClearImagePlane here?
 		m.bsp.sign.zoneshsm[0].ClearImagePlane()
 		retval = m.CheckCardForMediaFiles()
 		
 	else if pluginMessage$ = "BAPlay" then
-	
 		print " ||||| BAPlay pluginMessage$ event received ||||| "
 		return retval
 	
+	else if pluginMessage$ = "Stop" then
+		print "Terminating plugin actions by pluginMessage"
+		m.ImageTimer.Stop()
 	end if
 		
 	return retval
@@ -232,7 +229,6 @@ Function PlayfilesFromStorageMedia(FileList as Object, FileType as Object, list 
 		end if
 		
 		if m.IndexTracker <= m.sizePN then			
-					
 			if m.FileTypePN[m.IndexTracker] = "I" then
 				imgFileName=m.ImageFolder$ + "/"+ m.FileListPN[m.IndexTracker]
 				print "Playing static image " imgFileName
@@ -242,7 +238,6 @@ Function PlayfilesFromStorageMedia(FileList as Object, FileType as Object, list 
 		end if
 		
 	end if
-	
 	return ok
 	
 End Function
