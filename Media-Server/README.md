@@ -61,5 +61,5 @@ Streaming URLs
 ### Accessing an HDMI-input stream on a client
 <code>rtsp://serverIPAddress:8090/mem:/hdmi/stream.ts</code>
 
-### Acessing a display stream on a client
+### Accessing a display stream on a client
 <code>rtsp://serverIPAddress:8090/mem:/display/stream.ts</code>
