@@ -1,0 +1,21 @@
+{
+
+  "setBaconVals"                : "done",
+  "bbhf"                        : "on",
+  "endpoints_only_use_registry" : "true",
+  "endpoints_s3Url"             : "https://bsncloud.s3.amazonaws.com/public/",
+  "endpoints_provisionServer"   : "provision.brightsignnetwork.com",
+  "endpoints_bsnServer"         : "https://handlers.bsn.cloud/",
+  "endpoints_websocketsDWS"     : "wss://ws.bsn.cloud/",
+  "endpoints_bsnApiServer"      : "https://api.bsn.cloud/",
+  "endpoints_certsServer"       : "https://certs.brightsignnetwork.com",
+  "endpoints_featuresAvailable" : "https://certs.brightsignnetwork.com/features/api/v1/features",
+  "sut"                         : "BSN",
+  
+  "Comment1":                   "/**Grab this value by creating a bsn setup in BrightAuthor:Connected and looking at current-sync.json. */",
+  "bsnrt"                       : "sR3kmnT9lt37UAzdJQyNu4M68IDdEqD18msULLgb54pXYOtxXJWIQBww95b9J6kSVWZxqKELwJ6LAZoeSwsGtDGLVKSID8yUEUEs24FDPrxizZHUHlI4MLlHCBVmuwfH",
+  
+  "a"                           : "account",
+  "g"                           : "group"
+  
+}

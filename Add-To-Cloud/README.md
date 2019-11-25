@@ -2,7 +2,8 @@
 
 Add this plugin to a presentation in order to add a player to the control cloud, content cloud, or both.
 
-The plugin reads cloudParams.json and writes its values to the registry.
+The plugin reads cloudParams.json and writes its values to the registry. "ControlCloud_cloudParams.json" is an example of this file that only uses the BSN control cloud.
+"ContentCloud_cloudParams.json" uses BSN for both control and content.
 
 If you'd only like the player to use the control cloud, and not the content cloud, set "contentCloud" to false in cloudParams.json or just delete it.
 
