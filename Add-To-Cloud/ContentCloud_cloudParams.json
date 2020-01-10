@@ -12,7 +12,7 @@
   "endpoints_featuresAvailable" : "https://certs.brightsignnetwork.com/features/api/v1/features",
   "sut"                         : "BSN",
   
-  "Comment1":                   "/**Grab this value by creating a bsn setup in BrightAuthor:Connected and looking at current-sync.json. */",
+  "Comment1":                   "/**Grab this value by creating an Local File Networking setup in BrightAuthor:Connected and looking at local-sync.json. */",
   "bsnrt"                       : "sR8kmnT9lt37UAzdJQyNu4M68IDdEqD18msULLgb54pXYOtxXJWIQBww95b9J6kSVWZxqKELwJ6LAZoeSwsGtDGLVKSID8yUEUEsELFDPrxizZHUHlI4MLlHCBVmuwhH",
   
   "a"                           : "account",

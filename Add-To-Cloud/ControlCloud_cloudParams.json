@@ -10,12 +10,13 @@
   "endpoints_bsnApiServer"      : "https://api.bsn.cloud/",
   "endpoints_certsServer"       : "https://certs.brightsignnetwork.com",
   "endpoints_featuresAvailable" : "https://certs.brightsignnetwork.com/features/api/v1/features",
-  "sut"                         : "BSN",
+  "sut"                         : "LFN",
   
-  "Comment1":                   "/**Grab this value by creating a bsn setup in BrightAuthor:Connected and looking at current-sync.json. */",
+  "Comment1":                   "/**Grab this value by creating a bsn setup in BrightAuthor:Connected and looking at setup.json. */",
   "bsnrt"                       : "sR3kmnT9lt37UAzdJQyNu4M68IDdEqD18msULLgb54pXYOtxXJWIQBww95b9J6kSVWZxqKELwJ6LAZoeSwsGtDGLVKSID8yUEUEs24FDPrxizZHUHlI4MLlHCBVmuwfH",
   
   "a"                           : "account",
-  "g"                           : "group"
+  "Comment2":                   "/** The group below must be 'Default' for a control cloud only account.*/",
+  "g"                           : "Default"
   
 }
