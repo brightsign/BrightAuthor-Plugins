@@ -47,11 +47,8 @@ Function unzipNode_Initialize(msgPort As Object, userVariables As Object, bsp As
   }
   hw = CreateObject("roHTMLWidget", r, aa)
   hw.setPort(msgPort)
-  sleep(10000)
-
+  
   hw.show()
-
-  hw.PostJSMessage({msgtype:"htmlloaded"})
 
   return {
     objectName      : "unzipNode_object",
