@@ -230,14 +230,43 @@ Function ParsecustomPluginMsg(origMsg as string, s as object) as boolean
 		
 		if numFields = 3 then
 			'expects seek!zonename!timeinmilliseconds
+			'or seek!zonename!+/-offsetinmilliseconds
 
 			print "3 Fields"
+			' Get first char of the seek value
+			prefix$ = Left(fields[2],1)
 			zoneName$ = fields[1]
 			param2 = int(val(fields[2]))
 			for each zone in s.bsp.sign.zonesHSM
 				if lcase(zone.name$) = lcase(zoneName$) then
 					print "Found Seek Zone: "; zonename$
-					zone.videoPlayer.Seek(param2)
+					if prefix$ = "+" then
+					    'Seek forward by n millisec
+					    amount = int(val(mid(fields[2], 2)))
+					    curPos = zone.videoPlayer.GetPlaybackPosition()
+					    endPos = zone.videoPlayer.GetDuration()
+					    if curPos + amount > endPos then
+						'avoid seeking past end of video
+						newPos = endPos
+					    else
+						newPos = curPos + amount
+					    endif
+					    zone.videoPlayer.Seek(newPos)
+					else if prefix$ = "-" then
+					    'Seek backward by n millisec
+					    amount = int(val(mid(fields[2], 2)))
+					    curPos = zone.videoPlayer.GetPlaybackPosition()
+					    if curPos < amount then
+						'avoid seeking before start of video
+						newPos = 0
+					    else
+						newPos = curPos - amount
+					    endif
+					    zone.videoPlayer.Seek(newPos)
+					else
+					    'Seek to arbitrary position
+					    zone.videoPlayer.Seek(param2)
+					endif
 				endif
 			next
 			
