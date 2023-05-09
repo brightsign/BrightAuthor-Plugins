@@ -1,6 +1,6 @@
 ' BrightSign Video Mode Plugin
 ' This plugin allows you to set video resolution, frame rate, colour space and depth
-' The format of the plugin message is e.g. "brightsign!videomode!1920x1080x60i!444!10bit"
+' The format of the plugin message is e.g. "brightsign!!videomode!!1920x1080x60i!!444!!10bit"
 Function videomode_Initialize(msgPort As Object, userVariables As Object, bsp As Object)
 
     print "videomode_Initialize - entry"
@@ -40,7 +40,7 @@ Function videomode_ProcessEvent(event As Object) As boolean
 					print "videomode_ProcessEvent - Plugin name is videomode"
 					msg$ = event["PluginMessage"]
 					print "videomode_ProcessEvent - SEND_PLUGIN_MESSAGE=";msg$
-                    			retval = ParsePluginMsg(msg$, m)
+					retval = ParsePluginMsg(msg$, m)
 				End If
 			End If
 		End If
@@ -59,7 +59,7 @@ Function ParsePluginMsg(origMsg$ as String, m as Object) as boolean
 	print "Received Plugin message: "+msg
 
 	' See if it is a Brightsign message
-	' Format is "brightsign!videomode!1920x1080x60i!444!10bit"
+	' Format is "brightsign!!videomode!!1920x1080x60i!!444!!10bit"
 
 	r1 = CreateObject("roRegex", "^brightsign", "i")
 	match=r1.IsMatch(msg)
@@ -70,8 +70,8 @@ Function ParsePluginMsg(origMsg$ as String, m as Object) as boolean
 	' We know it is a message for us, mark is as handled
 	retval = true
 
-	' Split on !
-	r2 = CreateObject("roRegex", "!", "i")
+	' Split on !!
+	r2 = CreateObject("roRegex", "!!", "i")
 	fields=r2.split(msg)
 
 	numFields = fields.count()
@@ -95,7 +95,7 @@ Function ParsePluginMsg(origMsg$ as String, m as Object) as boolean
 	Else If (numFields = 4) Then
 		' Resolution and colour space
 		options = fields[2] + ":" + fields[3]
-		field3 =""
+		field3 = ""
 	Else If (numFields = 5) Then
 		' Resolution, colour space and depth
 		options = fields[2] + ":" + fields[3] + ":" + fields[4]

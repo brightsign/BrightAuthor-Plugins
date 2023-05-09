@@ -1,6 +1,6 @@
 # script-plugin-set-video-mode
 
-This repository describes how you can make use of Script Plugin and Plugin Message feature to set BrightSign VideoMode.
+This repository contains a example of using Script Plugin and Plugin Message feature to set BrightSign VideoMode.
 
 videomode_plugin.brs is a custom BrightSign plugin example that you can configure videoMode for series 4 players via Plugin Message Usage.
 
@@ -8,11 +8,14 @@ videomode_plugin.brs is a custom BrightSign plugin example that you can configur
 
 1. Update videomode_plugin.brs with your expected screens settings
 2. Add videomode_plugin.brs to BrightAuthor or BrightAuthor:Connected (Presentation Settings > Support Content > Script Plugin)
-3. Add a plugin message wherever you want to send it: Advanced tab > Add Command > Send > Send Plugin Message, pick the plugin you added in step 1, and add the text of the the plugin message e.g. "brightsign!videomode!1920x1080x60i!444!10bit" (format below)
-
+3. Name ```videomode``` as your Script plugin name (which must be the same as the <plugin_name> described in your brs plugin initialization function)
+4. Add a plugin message wherever you want to send it: Advanced tab > Add Command > Send > Send Plugin Message, pick the plugin you added in step 1, and add the text of the the plugin message e.g., (format described below)
+```
+brightsign!!videomode!!1920x1080x60i!!444!!10bit
+```
 The format of command is a set of values separated by exclamation characters:
 
-    brightsign!videomode!<resolution/frame rate>!<color space>!<color depth>
+    brightsign!!videomode!!<resolution/frame rate>!!<color space>!!<color depth>
 
 See below for valid values for these parameters.
 
