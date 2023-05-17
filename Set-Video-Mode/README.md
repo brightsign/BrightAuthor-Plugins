@@ -8,8 +8,8 @@ videomode_plugin.brs is a custom BrightSign plugin example that you can configur
 
 1. Update videomode_plugin.brs with your expected screens settings
 2. Add videomode_plugin.brs to BrightAuthor or BrightAuthor:Connected (Presentation Settings > Support Content > Script Plugin)
-3. Name ```videomode``` as your Script plugin name (which must be the same as the <plugin_name> described in your brs plugin initialization function)
-4. Add a plugin message wherever you want to send it: Advanced tab > Add Command > Send > Send Plugin Message, pick the plugin you added in step 1, and add the text of the the plugin message e.g., (format described below)
+3. Add 'videomode' to your Script plugin name. Make sure that the assigned name matches the <plugin_name> specified in your BRs plugin <plugin_name>_Initialize() function. 
+4. Add a plugin message wherever you want to send it: Advanced tab > Add Command > Send > Send Plugin Message, pick the plugin you added in step 1, and add the text of the plugin message e.g., (format described below)
 ```
 brightsign!!videomode!!1920x1080x60i!!444!!10bit
 ```
