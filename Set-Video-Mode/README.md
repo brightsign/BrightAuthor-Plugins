@@ -1,6 +1,6 @@
 # script-plugin-set-video-mode
 
-This repository contains a example of using Script Plugin and Plugin Message feature to set BrightSign VideoMode.
+This repository contains an example of using Script Plugin and Plugin Message feature to set BrightSign VideoMode.
 
 videomode_plugin.brs is a custom BrightSign plugin example that you can configure videoMode for series 4 players via Plugin Message Usage.
 
@@ -8,7 +8,7 @@ videomode_plugin.brs is a custom BrightSign plugin example that you can configur
 
 1. Update videomode_plugin.brs with your expected screens settings
 2. Add videomode_plugin.brs to BrightAuthor or BrightAuthor:Connected (Presentation Settings > Support Content > Script Plugin)
-3. Add 'videomode' to your Script plugin name. Make sure that the assigned name matches the <plugin_name> specified in your BRs plugin <plugin_name>_Initialize() function. 
+3. Add 'videomode' to your Script plugin name. Make sure that the assigned name matches the <plugin_name> specified in your BRS plugin <plugin_name>_Initialize() function. 
 4. Add a plugin message wherever you want to send it: Advanced tab > Add Command > Send > Send Plugin Message, pick the plugin you added in step 1, and add the text of the plugin message e.g., (format described below)
 ```
 brightsign!!videomode!!1920x1080x60i!!444!!10bit
@@ -25,7 +25,7 @@ See below for valid values for these parameters.
 
 ## Examples of Valid Resolution and Frame Rates
 
-*Note*: this is not a complete list, and your BrightSign player may not support all these modes. Please refer to the [Supported Video Modes](https://brightsign.atlassian.net/wiki/spaces/DOC/pages/370676833/Supported+Video+Modes) and the [Video tab](https://brightsign.atlassian.net/wiki/spaces/DOC/pages/370673541/Diagnostic+Web+Server#Video) of your BrightSign player's Diagnostic Web Server to see what is supported.
+*Note*: this is not a complete list, and your BrightSign player may not support all these modes. Please refer to the [Supported Video Modes](https://brightsign.atlassian.net/wiki/spaces/DOC/pages/370676833/Supported+Video+Modes) or the [Video tab](https://brightsign.atlassian.net/wiki/spaces/DOC/pages/370673541/Diagnostic+Web+Server#Video) of your BrightSign player's Diagnostic Web Server to see what is supported.
 
 - 1024x768x60p
 - 1024x768x75p
