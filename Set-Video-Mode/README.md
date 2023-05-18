@@ -25,7 +25,7 @@ See below for valid values for these parameters.
 
 ## Examples of Valid Resolution and Frame Rates
 
-*Note*: this is not a complete list, and your BrightSign player may not support all these modes. Please refer to the documentation and the Video tab of your BrightSign player to see what is supported.
+*Note*: this is not a complete list, and your BrightSign player may not support all these modes. Please refer to the [Supported Video Modes](https://brightsign.atlassian.net/wiki/spaces/DOC/pages/370676833/Supported+Video+Modes) and the [Video tab](https://brightsign.atlassian.net/wiki/spaces/DOC/pages/370673541/Diagnostic+Web+Server#Video) of your BrightSign player's Diagnostic Web Server to see what is supported.
 
 - 1024x768x60p
 - 1024x768x75p
